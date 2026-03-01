@@ -1,0 +1,25 @@
+---
+import { clsx } from 'clsx';
+
+interface Props {
+  as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+  dark?: boolean;
+  class?: string;
+}
+
+const { 
+  as: Element = 'p', 
+  dark = false, 
+  class: className,
+} = Astro.props;
+
+const classes = clsx(
+  'font-mono text-xs/5 font-semibold uppercase tracking-widest',
+  dark ? 'text-gray-400' : 'text-gray-500',
+  className,
+);
+---
+
+<Element class={classes}>
+  <slot />
+</Element>

@@ -1,0 +1,33 @@
+---
+/**
+ * Text.astro - Default export is Heading component
+ * 
+ * For better modularity, consider importing specific components directly:
+ * - import Heading from './Heading.astro';
+ * - import Subheading from './Subheading.astro';
+ * - import Lead from './Lead.astro';
+ */
+import { clsx } from 'clsx';
+
+interface Props {
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  dark?: boolean;
+  class?: string;
+}
+
+const { 
+  as: Element = 'h2', 
+  dark = false, 
+  class: className,
+} = Astro.props;
+
+const classes = clsx(
+  'text-4xl font-medium tracking-tight text-pretty sm:text-6xl',
+  dark ? 'text-white' : 'text-gray-950',
+  className,
+);
+---
+
+<Element class={classes}>
+  <slot />
+</Element>

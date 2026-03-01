@@ -1,0 +1,422 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/ui/Container.astro';
+import Button from '../components/ui/Button.astro';
+
+// Values for the grid
+const values = [
+  {
+    title: 'Open Source',
+    description: 'Transparent development, community contributions welcome. See exactly how your data is handled.',
+    icon: 'code',
+    color: 'violet',
+  },
+  {
+    title: 'Privacy First',
+    description: 'Your data stays yours. Self-host for full control over your customer communication infrastructure.',
+    icon: 'shield',
+    color: 'green',
+  },
+  {
+    title: 'Developer Experience',
+    description: 'Built by developers, for developers. Clean APIs, comprehensive docs, and modern tooling.',
+    icon: 'terminal',
+    color: 'blue',
+  },
+  {
+    title: 'Flexibility',
+    description: 'Extensible architecture with WASM plugins. No vendor lock-in, integrate with your existing stack.',
+    icon: 'puzzle',
+    color: 'amber',
+  },
+  {
+    title: 'Quality',
+    description: 'Modern stack with React 18, Go, and PostgreSQL. Well-tested and production-ready.',
+    icon: 'check',
+    color: 'emerald',
+  },
+  {
+    title: 'Community',
+    description: 'Active development and responsive to feedback. Join a growing community of contributors.',
+    icon: 'users',
+    color: 'pink',
+  },
+];
+
+// Tech stack items
+const techStack = {
+  frontend: [
+    { name: 'React 18', description: 'UI Framework' },
+    { name: 'TypeScript', description: 'Type Safety' },
+    { name: 'Tailwind CSS', description: 'Styling' },
+    { name: 'shadcn/ui', description: 'Components' },
+  ],
+  backend: [
+    { name: 'Go', description: 'Backend Language' },
+    { name: 'PostgreSQL', description: 'Database' },
+    { name: 'NATS', description: 'Message Queue' },
+  ],
+  infrastructure: [
+    { name: 'WASM Plugins', description: 'Extensibility' },
+    { name: 'Self-Hosted', description: 'Full Control' },
+    { name: 'Docker', description: 'Deployment' },
+  ],
+};
+---
+
+<Layout 
+  title="About"
+  description="Learn about Lunogram's mission to provide open-source marketing automation for SaaS companies."
+>
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-24">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="font-mono text-xs font-semibold tracking-widest text-violet-400 uppercase mb-6">
+          About Lunogram
+        </p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white text-balance">
+          Building the future of customer communication
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-gray-400 text-balance">
+          Open-source, transparent, and community-driven.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Mission Statement -->
+  <section class="py-16 sm:py-24 border-t border-white/5">
+    <Container>
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-white mb-8">
+          Our Mission
+        </h2>
+        <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+          <p>
+            We believe every company should have access to powerful marketing automation tools 
+            without being locked into expensive proprietary platforms.
+          </p>
+          <p>
+            Lunogram exists to democratize customer communication. Too many businesses are forced 
+            to choose between overpaying for bloated enterprise solutions or cobbling together 
+            fragmented tools that don't work well together.
+          </p>
+          <p>
+            Our vision is a world where SaaS companies of any size can engage their customers 
+            through email, SMS, push notifications, and webhooks—all from a single, open platform 
+            they can trust, customize, and own.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="py-16 sm:py-24 bg-gray-900/50">
+    <Container>
+      <div class="max-w-3xl mx-auto">
+        <p class="font-mono text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
+          Our Story
+        </p>
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-white mb-8">
+          Built on strong foundations
+        </h2>
+        <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+          <p>
+            Lunogram is a continuation of <a href="https://github.com/parcelvoy/platform" target="_blank" rel="noopener noreferrer" class="text-violet-400 hover:text-violet-300 transition-colors">Parcelvoy</a>, 
+            an open-source marketing automation platform that was archived after years of development.
+          </p>
+          <p>
+            We saw the potential in what Parcelvoy had built—a solid foundation for multi-channel 
+            customer communication—and made the decision to fork and continue its development. 
+            Rather than let this valuable work fade away, we're committed to evolving it into 
+            a modern, maintainable platform.
+          </p>
+          <p>
+            Our goal is to honor the original vision while modernizing the codebase, improving 
+            the developer experience, and building a sustainable community around the project. 
+            We're not starting from scratch; we're building on proven technology with fresh 
+            energy and a long-term commitment.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Values Section -->
+  <section class="py-16 sm:py-24 border-t border-white/5">
+    <Container>
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
+          What We Stand For
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white text-balance">
+          Our Values
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {values.map((value) => (
+          <div class="relative p-6 rounded-2xl bg-white/5 ring-1 ring-white/10 hover:ring-white/20 transition-all">
+            <!-- Icon -->
+            <div class:list={[
+              'w-12 h-12 rounded-xl flex items-center justify-center mb-4',
+              value.color === 'violet' && 'bg-violet-500/20 ring-1 ring-violet-500/30',
+              value.color === 'green' && 'bg-green-500/20 ring-1 ring-green-500/30',
+              value.color === 'blue' && 'bg-blue-500/20 ring-1 ring-blue-500/30',
+              value.color === 'amber' && 'bg-amber-500/20 ring-1 ring-amber-500/30',
+              value.color === 'emerald' && 'bg-emerald-500/20 ring-1 ring-emerald-500/30',
+              value.color === 'pink' && 'bg-pink-500/20 ring-1 ring-pink-500/30',
+            ]}>
+              {value.icon === 'code' && (
+                <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+              )}
+              {value.icon === 'shield' && (
+                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              )}
+              {value.icon === 'terminal' && (
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              )}
+              {value.icon === 'puzzle' && (
+                <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+                </svg>
+              )}
+              {value.icon === 'check' && (
+                <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              )}
+              {value.icon === 'users' && (
+                <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">
+              {value.title}
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              {value.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-16 sm:py-24 bg-gray-900/50">
+    <Container>
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
+          Under the Hood
+        </p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white text-balance">
+          Modern Technology Stack
+        </h2>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+          Built with production-ready technologies that scale with your business.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Frontend -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold text-white/70 uppercase tracking-wider">Frontend</h3>
+          <div class="space-y-3">
+            {techStack.frontend.map((tech) => (
+              <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 ring-1 ring-white/10">
+                <span class="text-white font-medium">{tech.name}</span>
+                <span class="text-sm text-gray-500">{tech.description}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold text-white/70 uppercase tracking-wider">Backend</h3>
+          <div class="space-y-3">
+            {techStack.backend.map((tech) => (
+              <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 ring-1 ring-white/10">
+                <span class="text-white font-medium">{tech.name}</span>
+                <span class="text-sm text-gray-500">{tech.description}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="space-y-4">
+          <h3 class="text-sm font-semibold text-white/70 uppercase tracking-wider">Infrastructure</h3>
+          <div class="space-y-3">
+            {techStack.infrastructure.map((tech) => (
+              <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 ring-1 ring-white/10">
+                <span class="text-white font-medium">{tech.name}</span>
+                <span class="text-sm text-gray-500">{tech.description}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Team Section (Placeholder) -->
+  <section class="py-16 sm:py-24 border-t border-white/5">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="font-mono text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
+          The Team
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+          Built by a passionate community
+        </h2>
+        <p class="text-lg text-gray-400 mb-8">
+          Lunogram is developed and maintained by a growing community of contributors 
+          who believe in open-source software and accessible marketing automation.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a 
+            href="https://github.com/lunogram/platform/graphs/contributors"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/80 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg ring-1 ring-white/10 transition-all"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+            </svg>
+            View Contributors
+          </a>
+          <a 
+            href="https://github.com/lunogram/platform/blob/main/CONTRIBUTING.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/80 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg ring-1 ring-white/10 transition-all"
+          >
+            Become a Contributor
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Open Source CTA -->
+  <section class="py-16 sm:py-24 bg-gray-900/50">
+    <Container>
+      <div class="relative rounded-3xl bg-gradient-to-br from-violet-500/10 via-purple-500/10 to-pink-500/10 ring-1 ring-white/10 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet-600/20 via-transparent to-transparent"></div>
+        <div class="relative px-8 py-16 sm:px-16 sm:py-20 text-center">
+          <div class="w-16 h-16 mx-auto mb-8 rounded-2xl bg-white/10 ring-1 ring-white/20 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-4">
+            Join the open-source movement
+          </h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto mb-8">
+            Lunogram is released under the MIT License. Star us on GitHub, contribute code, 
+            or help improve our documentation.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a 
+              href="https://github.com/lunogram/platform"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 h-12 px-8 text-base font-medium text-gray-950 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+              Star on GitHub
+            </a>
+            <a 
+              href="https://github.com/lunogram/platform/blob/main/CONTRIBUTING.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 h-12 px-8 text-base font-medium text-white bg-white/10 ring-1 ring-white/15 rounded-full hover:bg-white/15 transition-colors"
+            >
+              Contribute
+            </a>
+          </div>
+          <p class="mt-8 text-sm text-gray-500">
+            Released under the <a href="https://github.com/lunogram/platform/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">MIT License</a>
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16 sm:py-24 border-t border-white/5">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="font-mono text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
+          Get in Touch
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+          Have questions?
+        </h2>
+        <p class="text-lg text-gray-400 mb-10">
+          We'd love to hear from you. Reach out through any of these channels.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <!-- GitHub Discussions -->
+          <a 
+            href="https://github.com/lunogram/platform/discussions"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col items-center p-6 rounded-2xl bg-white/5 ring-1 ring-white/10 hover:ring-white/20 hover:bg-white/[0.07] transition-all"
+          >
+            <div class="w-12 h-12 rounded-xl bg-violet-500/20 ring-1 ring-violet-500/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+              </svg>
+            </div>
+            <h3 class="text-white font-medium mb-1">GitHub Discussions</h3>
+            <p class="text-sm text-gray-500">Ask questions & share ideas</p>
+          </a>
+
+          <!-- Twitter/X -->
+          <a 
+            href="https://x.com/lunogram"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col items-center p-6 rounded-2xl bg-white/5 ring-1 ring-white/10 hover:ring-white/20 hover:bg-white/[0.07] transition-all"
+          >
+            <div class="w-12 h-12 rounded-xl bg-blue-500/20 ring-1 ring-blue-500/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M12.6 0h2.454l-5.36 6.778L16 16h-4.937l-3.867-5.594L2.771 16H.316l5.733-7.25L0 0h5.063l3.495 5.114L12.6 0zm-.86 14.376h1.36L4.323 1.539H2.865l8.875 12.837z"/>
+              </svg>
+            </div>
+            <h3 class="text-white font-medium mb-1">X (Twitter)</h3>
+            <p class="text-sm text-gray-500">Follow for updates</p>
+          </a>
+
+          <!-- Email -->
+          <a 
+            href="mailto:hello@lunogram.dev"
+            class="group flex flex-col items-center p-6 rounded-2xl bg-white/5 ring-1 ring-white/10 hover:ring-white/20 hover:bg-white/[0.07] transition-all"
+          >
+            <div class="w-12 h-12 rounded-xl bg-green-500/20 ring-1 ring-green-500/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-white font-medium mb-1">Email</h3>
+            <p class="text-sm text-gray-500">hello@lunogram.dev</p>
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

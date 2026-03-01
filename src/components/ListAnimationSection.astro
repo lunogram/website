@@ -1,0 +1,35 @@
+---
+import Container from './ui/Container.astro';
+import Heading from './ui/Heading.astro';
+import Subheading from './ui/Subheading.astro';
+import ListAnimation from './interactive/ListAnimation.tsx';
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+---
+
+<section id={id} class:list={['py-24', className]}>
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <Subheading class="text-gray-400 mb-4" dark>Segmentation</Subheading>
+      <Heading as="h2" dark class="text-3xl sm:text-4xl lg:text-5xl">
+        Audiences that build<br class="hidden sm:block" />
+        themselves
+      </Heading>
+      <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+        Create dynamic lists based on user properties, organization attributes, and event history. 
+        Watch your segments update in real-time.
+      </p>
+    </div>
+
+    <!-- Animated List Builder Component - fixed height container to prevent jumps -->
+    <div class="min-h-[580px] sm:min-h-[520px]">
+      <ListAnimation client:visible />
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,234 @@
+---
+import Container from './ui/Container.astro';
+import Heading from './ui/Heading.astro';
+import Subheading from './ui/Subheading.astro';
+import { GlowCards } from './interactive/GlowCards';
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+
+const integrations = [
+  // Available Now
+  {
+    name: 'Resend',
+    channel: 'Email',
+    description: 'Modern email API for developers',
+    color: 'blue',
+    featured: false,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+    </svg>`,
+  },
+  {
+    name: 'SendGrid',
+    channel: 'Email',
+    description: 'Reliable email delivery at scale',
+    color: 'blue',
+    featured: false,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+    </svg>`,
+  },
+  {
+    name: 'Twilio',
+    channel: 'SMS & Voice',
+    description: 'Communication APIs for messaging',
+    color: 'red',
+    featured: false,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+    </svg>`,
+  },
+  {
+    name: 'Push (APN/FCM)',
+    channel: 'Push Notifications',
+    description: 'Mobile notifications for iOS & Android',
+    color: 'violet',
+    featured: false,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+    </svg>`,
+  },
+  // Coming Soon
+  {
+    name: 'Mailgun',
+    channel: 'Email',
+    description: 'Powerful transactional email APIs',
+    color: 'rose',
+    featured: false,
+    comingSoon: true,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+    </svg>`,
+  },
+  {
+    name: 'Amazon SES',
+    channel: 'Email',
+    description: 'Cost-effective cloud email service',
+    color: 'orange',
+    featured: false,
+    comingSoon: true,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+    </svg>`,
+  },
+  {
+    name: 'Postmark',
+    channel: 'Email',
+    description: 'Fast, reliable transactional email',
+    color: 'yellow',
+    featured: false,
+    comingSoon: true,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+    </svg>`,
+  },
+  {
+    name: 'Webhooks',
+    channel: 'HTTP Callbacks',
+    description: 'Send data to any HTTP endpoint',
+    color: 'green',
+    featured: false,
+    comingSoon: true,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+    </svg>`,
+  },
+  {
+    name: 'WASM Plugins',
+    channel: 'Custom Integrations',
+    description: 'Build any channel with our plugin SDK',
+    color: 'amber',
+    featured: true,
+    comingSoon: true,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+    </svg>`,
+  },
+];
+
+// Color mappings for Tailwind classes
+const colorClasses = {
+  blue: {
+    bg: 'bg-blue-500/10',
+    ring: 'ring-blue-500/20',
+    icon: 'bg-blue-500',
+    text: 'text-blue-400',
+  },
+  green: {
+    bg: 'bg-green-500/10',
+    ring: 'ring-green-500/20',
+    icon: 'bg-green-500',
+    text: 'text-green-400',
+  },
+  violet: {
+    bg: 'bg-violet-500/10',
+    ring: 'ring-violet-500/20',
+    icon: 'bg-violet-500',
+    text: 'text-violet-400',
+  },
+  amber: {
+    bg: 'bg-amber-500/10',
+    ring: 'ring-amber-500/20',
+    icon: 'bg-amber-500',
+    text: 'text-amber-400',
+  },
+  rose: {
+    bg: 'bg-rose-500/10',
+    ring: 'ring-rose-500/20',
+    icon: 'bg-rose-500',
+    text: 'text-rose-400',
+  },
+  orange: {
+    bg: 'bg-orange-500/10',
+    ring: 'ring-orange-500/20',
+    icon: 'bg-orange-500',
+    text: 'text-orange-400',
+  },
+  yellow: {
+    bg: 'bg-yellow-500/10',
+    ring: 'ring-yellow-500/20',
+    icon: 'bg-yellow-500',
+    text: 'text-yellow-400',
+  },
+  red: {
+    bg: 'bg-red-500/10',
+    ring: 'ring-red-500/20',
+    icon: 'bg-red-500',
+    text: 'text-red-400',
+  },
+} as const;
+---
+
+<section id={id} class:list={['py-24', className]}>
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <Subheading class="text-gray-400 mb-4" dark>Integrations</Subheading>
+      <Heading as="h2" dark class="text-3xl sm:text-4xl lg:text-5xl">
+        Connect with your<br class="hidden sm:block" />
+        favorite tools
+      </Heading>
+      <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+        Lunogram integrates with popular email, SMS, and push notification providers. 
+        Extend functionality with our WASM plugin architecture.
+      </p>
+    </div>
+
+    <!-- Integration Cards Grid -->
+    <GlowCards client:load className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+      {integrations.map((integration) => {
+        const colors = colorClasses[integration.color as keyof typeof colorClasses];
+        const isFeatured = integration.featured;
+        const isComingSoon = integration.comingSoon;
+        const glowColor = isFeatured ? 'rgba(245, 158, 11, 0.15)' : undefined;
+        return (
+          <div 
+            data-glow-card
+            data-glow-color={glowColor}
+            class:list={[
+              'group relative rounded-2xl p-6 transition-all duration-300',
+              isFeatured 
+                ? 'bg-gradient-to-br from-amber-500/10 to-orange-500/5 ring-2 ring-amber-500/30 hover:ring-amber-500/50' 
+                : 'bg-white/5 ring-1 ring-white/10 hover:ring-white/20 hover:bg-white/[0.07]',
+            ]}>
+            {/* Coming Soon Badge */}
+            {isComingSoon && (
+              <div class:list={[
+                'absolute -top-2 -right-2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide rounded-full',
+                isFeatured 
+                  ? 'bg-amber-500 text-black' 
+                  : 'bg-zinc-700 text-zinc-400'
+              ]}>
+                Coming Soon
+              </div>
+            )}
+            
+            {/* Icon */}
+            <div class:list={[
+              'w-12 h-12 rounded-xl flex items-center justify-center mb-4',
+              colors.bg,
+              `ring-1 ${colors.ring}`,
+            ]}>
+              <div class:list={[colors.text]} set:html={integration.icon} />
+            </div>
+            
+            {/* Content */}
+            <h3 class="text-white font-semibold mb-1">{integration.name}</h3>
+            <p class:list={['text-xs font-medium mb-2', colors.text]}>{integration.channel}</p>
+            <p class="text-sm text-white/60">{integration.description}</p>
+          </div>
+        );
+      })}
+    </GlowCards>
+
+    <!-- Coming Soon Note -->
+    <p class="text-center text-sm text-white/40 mt-8">
+      More providers available soon. <span class="text-amber-400">Build your own integrations</span> with our WASM plugin SDK.
+    </p>
+  </Container>
+</section>

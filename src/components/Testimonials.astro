@@ -1,0 +1,116 @@
+---
+import Container from './ui/Container.astro';
+import Heading from './ui/Heading.astro';
+import Subheading from './ui/Subheading.astro';
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+
+// Placeholder testimonials - to be replaced with real ones as they come in
+const testimonials = [
+  {
+    quote: "Lunogram's visual journey builder transformed how we onboard customers. We reduced our time-to-value by 40% in the first month.",
+    name: 'Sarah Chen',
+    title: 'VP of Product',
+    company: 'TechScale',
+    initials: 'SC',
+    color: 'violet',
+  },
+  {
+    quote: "Finally, a marketing automation platform that understands B2B SaaS. The organization-level targeting is exactly what we needed.",
+    name: 'Marcus Rodriguez',
+    title: 'Head of Growth',
+    company: 'CloudBase',
+    initials: 'MR',
+    color: 'blue',
+  },
+  {
+    quote: "Self-hosting Lunogram gave us complete control over our customer data. The WASM plugin architecture makes it incredibly extensible.",
+    name: 'Emily Watson',
+    title: 'CTO',
+    company: 'DataFlow',
+    initials: 'EW',
+    color: 'green',
+  },
+];
+
+const colorClasses = {
+  violet: {
+    bg: 'bg-violet-500/20',
+    text: 'text-violet-400',
+  },
+  blue: {
+    bg: 'bg-blue-500/20',
+    text: 'text-blue-400',
+  },
+  green: {
+    bg: 'bg-green-500/20',
+    text: 'text-green-400',
+  },
+} as const;
+---
+
+<section id={id} class:list={['py-24', className]}>
+  <Container>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <Subheading class="text-gray-400 mb-4" dark>Testimonials</Subheading>
+      <Heading as="h2" dark class="text-3xl sm:text-4xl lg:text-5xl">
+        What developers are<br class="hidden sm:block" />
+        saying
+      </Heading>
+      <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+        Join the growing community of SaaS companies using Lunogram 
+        for their customer communication.
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {testimonials.map((testimonial) => {
+        const colors = colorClasses[testimonial.color as keyof typeof colorClasses];
+        return (
+          <div class="bg-white/5 rounded-2xl p-8 ring-1 ring-white/10">
+            <!-- Quote -->
+            <blockquote class="text-white/80 text-base leading-relaxed mb-6">
+              <span class="text-white/30 text-2xl leading-none">"</span>
+              {testimonial.quote}
+              <span class="text-white/30 text-2xl leading-none">"</span>
+            </blockquote>
+            
+            <!-- Author -->
+            <div class="flex items-center gap-4">
+              <div class:list={[
+                'w-12 h-12 rounded-full flex items-center justify-center font-medium',
+                colors.bg,
+                colors.text,
+              ]}>
+                {testimonial.initials}
+              </div>
+              <div>
+                <div class="text-white font-medium">{testimonial.name}</div>
+                <div class="text-gray-400 text-sm">
+                  {testimonial.title} at {testimonial.company}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <p class="text-sm text-white/40">
+        Want to share your experience? 
+        <a href="mailto:hello@lunogram.dev" class="text-violet-400 hover:text-violet-300 transition-colors">
+          Get in touch
+        </a>
+      </p>
+    </div>
+  </Container>
+</section>

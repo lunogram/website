@@ -1,0 +1,594 @@
+---
+import Container from "./ui/Container.astro";
+import { GlowCards } from "./interactive/GlowCards";
+
+interface Props {
+    id?: string;
+    class?: string;
+}
+
+const { id = "features", class: className } = Astro.props;
+---
+
+<section id={id} class:list={["py-24", className]}>
+    <Container>
+        <!-- Section Header - centered -->
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+            <p
+                class="font-mono text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4"
+            >
+                Features
+            </p>
+            <h2
+                class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white text-balance"
+            >
+                Everything you need to engage<br class="hidden sm:block" />
+                your customers
+            </h2>
+        </div>
+
+        <!-- Bento Grid - 2x2 layout centered -->
+        <div class="max-w-6xl mx-auto">
+            <GlowCards client:load className="relative">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Cross-Channel Messaging -->
+                    <div
+                        data-glow-card
+                        class="group relative bg-white/[0.03] rounded-3xl p-8 ring-1 ring-white/10 hover:ring-white/20 transition-all"
+                    >
+                        <div class="mb-6">
+                            <p
+                                class="font-mono text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3"
+                            >
+                                Multi-Channel
+                            </p>
+                            <h3 class="text-xl font-semibold text-white mb-2">
+                                Reach customers everywhere
+                            </h3>
+                            <p class="text-sm text-white/60 leading-relaxed">
+                                Email, SMS, push notifications, and webhooks
+                                from a single platform.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div
+                                class="flex items-center gap-3 bg-blue-500/10 px-4 py-3 rounded-xl ring-1 ring-blue-500/20"
+                            >
+                                <div
+                                    class="w-9 h-9 bg-blue-500 rounded-lg flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white text-sm font-medium"
+                                    >Email</span
+                                >
+                            </div>
+                            <div
+                                class="flex items-center gap-3 bg-green-500/10 px-4 py-3 rounded-xl ring-1 ring-green-500/20"
+                            >
+                                <div
+                                    class="w-9 h-9 bg-green-500 rounded-lg flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white text-sm font-medium"
+                                    >SMS</span
+                                >
+                            </div>
+                            <div
+                                class="flex items-center gap-3 bg-violet-500/10 px-4 py-3 rounded-xl ring-1 ring-violet-500/20"
+                            >
+                                <div
+                                    class="w-9 h-9 bg-violet-500 rounded-lg flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white text-sm font-medium"
+                                    >Push</span
+                                >
+                            </div>
+                            <div
+                                class="flex items-center gap-3 bg-amber-500/10 px-4 py-3 rounded-xl ring-1 ring-amber-500/20"
+                            >
+                                <div
+                                    class="w-9 h-9 bg-amber-500 rounded-lg flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-white"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white text-sm font-medium"
+                                    >Webhooks</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Journey Builder -->
+                    <div
+                        data-glow-card
+                        class="group relative bg-white/[0.03] rounded-3xl p-8 ring-1 ring-white/10 hover:ring-white/20 transition-all"
+                    >
+                        <div class="mb-6">
+                            <p
+                                class="font-mono text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3"
+                            >
+                                Automation
+                            </p>
+                            <h3 class="text-xl font-semibold text-white mb-2">
+                                Design customer journeys visually
+                            </h3>
+                            <p class="text-sm text-white/60 leading-relaxed">
+                                Drag-and-drop workflow builder with 8 step types
+                                for complete automation.
+                            </p>
+                        </div>
+                        <div
+                            class="flex items-center justify-center gap-2 py-4"
+                        >
+                            <div
+                                class="w-11 h-11 bg-gray-500/20 rounded-lg flex items-center justify-center ring-1 ring-gray-500/30"
+                            >
+                                <svg
+                                    class="w-5 h-5 text-gray-400"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z"
+                                        clip-rule="evenodd"></path>
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="w-6 h-0.5 bg-white/20"></div>
+                            <div
+                                class="w-11 h-11 bg-yellow-500/20 rounded-lg flex items-center justify-center ring-1 ring-yellow-500/30"
+                            >
+                                <svg
+                                    class="w-5 h-5 text-yellow-400"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="w-6 h-0.5 bg-white/20"></div>
+                            <div
+                                class="w-11 h-11 bg-violet-500/20 rounded-lg flex items-center justify-center ring-1 ring-violet-500/30 rotate-45"
+                            >
+                                <svg
+                                    class="w-5 h-5 text-violet-400 -rotate-45"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-2 ml-1">
+                                <div
+                                    class="w-4 h-0.5 bg-green-500/40 -translate-y-1"
+                                >
+                                </div>
+                                <div
+                                    class="w-4 h-0.5 bg-red-500/40 translate-y-1"
+                                >
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <div
+                                    class="w-9 h-9 bg-blue-500/20 rounded-lg flex items-center justify-center ring-1 ring-blue-500/30"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-blue-400"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"
+                                        ></path>
+                                        <path
+                                            d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <div
+                                    class="w-9 h-9 bg-pink-500/20 rounded-lg flex items-center justify-center ring-1 ring-pink-500/30"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-pink-400"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M10 2a6 6 0 00-6 6c0 1.887-.454 3.665-1.257 5.234a.75.75 0 00.515 1.076 32.91 32.91 0 003.256.508 3.5 3.5 0 006.972 0 32.903 32.903 0 003.256-.508.75.75 0 00.515-1.076A11.448 11.448 0 0116 8a6 6 0 00-6-6zM8.05 14.943a33.54 33.54 0 003.9 0 2 2 0 01-3.9 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organization Management -->
+                    <div
+                        data-glow-card
+                        class="group relative bg-white/[0.03] rounded-3xl p-8 ring-1 ring-white/10 hover:ring-white/20 transition-all"
+                    >
+                        <div class="mb-6">
+                            <p
+                                class="font-mono text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3"
+                            >
+                                SaaS-Ready
+                            </p>
+                            <h3 class="text-xl font-semibold text-white mb-2">
+                                Built for B2B
+                            </h3>
+                            <p class="text-sm text-white/60 leading-relaxed">
+                                Model customer organizations and target users by
+                                membership with ease.
+                            </p>
+                        </div>
+                        <div class="space-y-2.5">
+                            <div
+                                class="flex items-center gap-3 bg-white/5 px-4 py-3 rounded-lg ring-1 ring-white/10"
+                            >
+                                <div
+                                    class="w-8 h-8 bg-violet-500/20 rounded-full flex items-center justify-center"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-violet-400"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white text-sm font-medium"
+                                    >Acme Corp</span
+                                >
+                                <span class="ml-auto text-xs text-white/40"
+                                    >12 users</span
+                                >
+                            </div>
+                            <div
+                                class="flex items-center gap-3 bg-white/5 px-4 py-3 rounded-lg ring-1 ring-white/10"
+                            >
+                                <div
+                                    class="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-blue-400"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white text-sm font-medium"
+                                    >TechStart Inc</span
+                                >
+                                <span class="ml-auto text-xs text-white/40"
+                                    >8 users</span
+                                >
+                            </div>
+                            <div
+                                class="flex items-center gap-3 bg-white/5 px-4 py-3 rounded-lg ring-1 ring-white/10"
+                            >
+                                <div
+                                    class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center"
+                                >
+                                    <svg
+                                        class="w-4 h-4 text-green-400"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <span class="text-white text-sm font-medium"
+                                    >DataFlow Labs</span
+                                >
+                                <span class="ml-auto text-xs text-white/40"
+                                    >24 users</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- A/B Testing -->
+                    <div
+                        data-glow-card
+                        class="group relative bg-white/[0.03] rounded-3xl p-8 ring-1 ring-white/10 hover:ring-white/20 transition-all"
+                    >
+                        <div class="mb-6">
+                            <p
+                                class="font-mono text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3"
+                            >
+                                Optimization
+                            </p>
+                            <h3 class="text-xl font-semibold text-white mb-2">
+                                Experiment & optimize
+                            </h3>
+                            <p class="text-sm text-white/60 leading-relaxed">
+                                Run variant campaigns and journey branches to
+                                find what works best.
+                            </p>
+                        </div>
+                        <div class="flex justify-center gap-8 py-4">
+                            <div class="text-center">
+                                <div
+                                    class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center ring-1 ring-blue-500/30 mb-3"
+                                >
+                                    <span
+                                        class="text-blue-400 font-bold text-xl"
+                                        >A</span
+                                    >
+                                </div>
+                                <div
+                                    class="w-16 h-1.5 bg-blue-500/30 rounded-full mb-1.5 overflow-hidden"
+                                >
+                                    <div
+                                        class="h-full bg-blue-500 rounded-full experiment-bar-a"
+                                    >
+                                    </div>
+                                </div>
+                                <span
+                                    class="text-xs text-white/50 experiment-percent-a"
+                                    >30%</span
+                                >
+                            </div>
+                            <div class="text-center">
+                                <div
+                                    class="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center ring-1 ring-green-500/30 mb-3"
+                                >
+                                    <span
+                                        class="text-green-400 font-bold text-xl"
+                                        >B</span
+                                    >
+                                </div>
+                                <div
+                                    class="w-16 h-1.5 bg-green-500/30 rounded-full mb-1.5 overflow-hidden"
+                                >
+                                    <div
+                                        class="h-full bg-green-500 rounded-full experiment-bar-b"
+                                    >
+                                    </div>
+                                </div>
+                                <span
+                                    class="text-xs text-white/50 experiment-percent-b"
+                                    >70%</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </GlowCards>
+        </div>
+    </Container>
+
+    <style>
+        .experiment-bar-a {
+            width: 30%;
+        }
+
+        .experiment-bar-b {
+            width: 70%;
+        }
+    </style>
+
+    <script>
+        import { animate, createTimeline } from "animejs";
+
+        function initExperimentAnimation() {
+            const barA = document.querySelector(".experiment-bar-a");
+            const barB = document.querySelector(".experiment-bar-b");
+            const percentA = document.querySelector(".experiment-percent-a");
+            const percentB = document.querySelector(".experiment-percent-b");
+
+            if (!barA || !barB || !percentA || !percentB) return;
+
+            // Check for reduced motion preference
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+                return;
+
+            const counterA = { value: 30 };
+            const counterB = { value: 70 };
+
+            const timeline = createTimeline({
+                loop: true,
+                defaults: {
+                    ease: "inOutSine",
+                },
+            });
+
+            // 30/70 -> 50/50
+            timeline
+                .add(barA, { width: "50%", duration: 1500 }, 1000)
+                .add(barB, { width: "50%", duration: 1500 }, 1000)
+                .add(
+                    counterA,
+                    {
+                        value: 50,
+                        duration: 1500,
+                        onUpdate: () => {
+                            percentA.textContent = `${Math.round(counterA.value)}%`;
+                        },
+                    },
+                    1000,
+                )
+                .add(
+                    counterB,
+                    {
+                        value: 50,
+                        duration: 1500,
+                        onUpdate: () => {
+                            percentB.textContent = `${Math.round(counterB.value)}%`;
+                        },
+                    },
+                    1000,
+                )
+
+                // 50/50 -> 70/30
+                .add(barA, { width: "70%", duration: 1500 }, "+=1000")
+                .add(barB, { width: "30%", duration: 1500 }, "-=1500")
+                .add(
+                    counterA,
+                    {
+                        value: 70,
+                        duration: 1500,
+                        onUpdate: () => {
+                            percentA.textContent = `${Math.round(counterA.value)}%`;
+                        },
+                    },
+                    "-=1500",
+                )
+                .add(
+                    counterB,
+                    {
+                        value: 30,
+                        duration: 1500,
+                        onUpdate: () => {
+                            percentB.textContent = `${Math.round(counterB.value)}%`;
+                        },
+                    },
+                    "-=1500",
+                )
+
+                // 70/30 -> 50/50
+                .add(barA, { width: "50%", duration: 1500 }, "+=1000")
+                .add(barB, { width: "50%", duration: 1500 }, "-=1500")
+                .add(
+                    counterA,
+                    {
+                        value: 50,
+                        duration: 1500,
+                        onUpdate: () => {
+                            percentA.textContent = `${Math.round(counterA.value)}%`;
+                        },
+                    },
+                    "-=1500",
+                )
+                .add(
+                    counterB,
+                    {
+                        value: 50,
+                        duration: 1500,
+                        onUpdate: () => {
+                            percentB.textContent = `${Math.round(counterB.value)}%`;
+                        },
+                    },
+                    "-=1500",
+                )
+
+                // 50/50 -> 30/70
+                .add(barA, { width: "30%", duration: 1500 }, "+=1000")
+                .add(barB, { width: "70%", duration: 1500 }, "-=1500")
+                .add(
+                    counterA,
+                    {
+                        value: 30,
+                        duration: 1500,
+                        onUpdate: () => {
+                            percentA.textContent = `${Math.round(counterA.value)}%`;
+                        },
+                    },
+                    "-=1500",
+                )
+                .add(
+                    counterB,
+                    {
+                        value: 70,
+                        duration: 1500,
+                        onUpdate: () => {
+                            percentB.textContent = `${Math.round(counterB.value)}%`;
+                        },
+                    },
+                    "-=1500",
+                );
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === "loading") {
+            document.addEventListener(
+                "DOMContentLoaded",
+                initExperimentAnimation,
+            );
+        } else {
+            initExperimentAnimation();
+        }
+    </script>
+</section>

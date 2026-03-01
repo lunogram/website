@@ -1,0 +1,82 @@
+---
+import { clsx } from 'clsx';
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow?: string;
+  dark?: boolean;
+  class?: string;
+  fade?: ('top' | 'bottom')[];
+  'data-glow-card'?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  eyebrow, 
+  dark = false, 
+  class: className,
+  fade = [],
+  'data-glow-card': dataGlowCard,
+} = Astro.props;
+---
+
+<div
+  data-glow-card={dataGlowCard}
+  class:list={[
+    'group relative flex flex-col overflow-hidden rounded-3xl',
+    dark 
+      ? 'bg-zinc-900/80 ring-1 ring-white/10' 
+      : 'bg-white/5 ring-1 ring-white/10',
+    className,
+  ]}
+>
+  <!-- Fade overlays -->
+  {fade.includes('top') && (
+    <div 
+      class:list={[
+        'absolute inset-x-0 top-0 h-32 z-10 pointer-events-none',
+        dark 
+          ? 'bg-gradient-to-b from-zinc-900/80' 
+          : 'bg-gradient-to-b from-[#0f0f11]',
+      ]}
+    />
+  )}
+  {fade.includes('bottom') && (
+    <div 
+      class:list={[
+        'absolute inset-x-0 bottom-0 h-32 z-10 pointer-events-none',
+        dark 
+          ? 'bg-gradient-to-t from-zinc-900/80' 
+          : 'bg-gradient-to-t from-[#0f0f11]',
+      ]}
+    />
+  )}
+
+  <!-- Graphic slot -->
+  <div class="relative h-64 shrink-0 overflow-hidden">
+    <slot name="graphic" />
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-20 p-8 pt-4">
+    {eyebrow && (
+      <p class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-violet-400 mb-2">
+        {eyebrow}
+      </p>
+    )}
+    <h3 class:list={[
+      'text-xl font-semibold tracking-tight mb-2',
+      dark ? 'text-white' : 'text-white',
+    ]}>
+      {title}
+    </h3>
+    <p class:list={[
+      'text-sm leading-relaxed',
+      dark ? 'text-gray-400' : 'text-white/60',
+    ]}>
+      {description}
+    </p>
+  </div>
+</div>

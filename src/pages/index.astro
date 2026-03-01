@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import FeaturesSection from "../components/FeaturesSection.astro";
+import ListAnimationSection from "../components/ListAnimationSection.astro";
+import FeaturesSection2 from "../components/FeaturesSection2.astro";
+import IntegrationsSection from "../components/IntegrationsSection.astro";
+---
+
+<Layout
+    title="Lunogram - Customer Communication for SaaS"
+    description="Open source multi-channel marketing automation platform. Send targeted messages across email, SMS, push notifications, and webhooks."
+>
+    <!-- 1. Hero Section with Journey Animation Placeholder -->
+    <Hero />
+
+    <!-- 2. Feature Section 1 - Core Capabilities -->
+    <FeaturesSection class="border-t border-white/5" />
+
+    <!-- 3. List Animation Showcase - Segmentation -->
+    <ListAnimationSection id="segmentation" class="border-t border-white/5" />
+
+    <!-- 4. Feature Section 2 - Platform & Scale -->
+    <FeaturesSection2 class="border-t border-white/5" />
+
+    <!-- 5. Integrations -->
+    <IntegrationsSection id="integrations" class="border-t border-white/5" />
+</Layout>

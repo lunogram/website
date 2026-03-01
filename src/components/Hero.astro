@@ -1,0 +1,48 @@
+---
+import Container from './ui/Container.astro';
+import Button from './ui/Button.astro';
+import JourneyAnimation from './interactive/JourneyAnimation';
+---
+
+<section class="relative min-h-screen">
+  <Container class="relative pt-24 lg:pt-28">
+    <!-- Hero content -->
+    <div class="py-12 sm:py-16 md:py-20 text-center max-w-4xl mx-auto">
+      <!-- Headline -->
+      <h1 class="font-display text-4xl/[0.95] font-medium tracking-tight text-balance text-white sm:text-5xl/[0.9] md:text-6xl/[0.9]">
+        Customer communication
+        <br class="hidden sm:block" />
+        for SaaS companies
+      </h1>
+      
+      <!-- Subheadline -->
+      <p class="mt-8 max-w-2xl mx-auto text-xl/7 font-medium text-white/75 sm:text-2xl/8">
+        Open-source multi-channel marketing automation with visual journeys, 
+        dynamic segmentation, and organization management.
+      </p>
+      
+      <!-- CTA Button -->
+      <div class="mt-12 flex justify-center">
+        <Button variant="primary" size="lg" href="https://github.com/lunogram/platform">
+          Explore on GitHub
+        </Button>
+      </div>
+    </div>
+    
+    <!-- Journey Animation with gradient behind -->
+    <div class="relative pb-16 sm:pb-24">
+      <div class="relative max-w-6xl mx-auto">
+        <!-- Main gradient effect behind the animation -->
+        <div class="absolute inset-0 -top-20 -bottom-20 -left-20 -right-20 flex items-center justify-center pointer-events-none">
+          <div 
+            class="w-full h-full max-w-3xl max-h-[500px] rounded-full blur-[100px] opacity-50"
+            style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, rgba(96, 165, 250, 0.3) 40%, rgba(244, 114, 182, 0.3) 70%, rgba(167, 139, 250, 0.4) 100%);"
+          ></div>
+        </div>
+        
+        <!-- Journey Animation Component - lazy loaded when visible -->
+        <JourneyAnimation client:visible />
+      </div>
+    </div>
+  </Container>
+</section>

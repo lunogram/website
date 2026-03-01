@@ -1,0 +1,329 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/ui/Container.astro';
+import Button from '../components/ui/Button.astro';
+import Heading from '../components/ui/Heading.astro';
+import Subheading from '../components/ui/Subheading.astro';
+
+// Pricing tiers data
+const tiers = [
+  {
+    name: 'Self-Hosted',
+    target: 'Developers',
+    price: 'Free',
+    period: null,
+    description: 'Full control over your infrastructure with unlimited capabilities.',
+    isPrimary: false,
+    ctaText: 'Get Started',
+    ctaHref: '/docs/self-hosted',
+    features: [
+      'Unlimited users',
+      'Unlimited messages',
+      'Unlimited journeys',
+      'Unlimited team members',
+      'Community support',
+      'Full source code access',
+      'Custom integrations',
+      'SSO & RBAC included',
+    ],
+  },
+  {
+    name: 'Cloud Starter',
+    target: 'Small teams',
+    price: '$49',
+    period: '/month',
+    description: 'Managed hosting for small teams just getting started.',
+    isPrimary: false,
+    ctaText: 'Start Free Trial',
+    ctaHref: '/signup?plan=starter',
+    features: [
+      'Up to 10,000 users',
+      '50,000 messages/month',
+      '10 journeys',
+      '3 team members',
+      'Email support',
+      'Managed infrastructure',
+      '99.9% uptime SLA',
+    ],
+  },
+  {
+    name: 'Cloud Pro',
+    target: 'Growing SaaS',
+    price: '$199',
+    period: '/month',
+    description: 'Higher limits and priority support for growing businesses.',
+    isPrimary: true,
+    recommended: true,
+    ctaText: 'Start Free Trial',
+    ctaHref: '/signup?plan=pro',
+    features: [
+      'Up to 100,000 users',
+      '500,000 messages/month',
+      'Unlimited journeys',
+      '10 team members',
+      'Priority support',
+      'SSO & RBAC',
+      'Custom integrations',
+      'Advanced analytics',
+    ],
+  },
+  {
+    name: 'Enterprise',
+    target: 'Large organizations',
+    price: 'Custom',
+    period: null,
+    description: 'Dedicated support and custom limits for large organizations.',
+    isPrimary: false,
+    ctaText: 'Contact Sales',
+    ctaHref: '/contact?plan=enterprise',
+    features: [
+      'Custom user limits',
+      'Custom message limits',
+      'Unlimited journeys',
+      'Unlimited team members',
+      'Dedicated support',
+      'SSO & RBAC',
+      'Custom integrations',
+      'SLA guarantee',
+      'Dedicated account manager',
+    ],
+  },
+];
+
+// Feature comparison data
+const comparisonFeatures = [
+  { name: 'Users', selfHosted: 'Unlimited', starter: '10,000', pro: '100,000', enterprise: 'Custom' },
+  { name: 'Messages/mo', selfHosted: 'Unlimited', starter: '50,000', pro: '500,000', enterprise: 'Custom' },
+  { name: 'Journeys', selfHosted: 'Unlimited', starter: '10', pro: 'Unlimited', enterprise: 'Unlimited' },
+  { name: 'Team members', selfHosted: 'Unlimited', starter: '3', pro: '10', enterprise: 'Unlimited' },
+  { name: 'Support', selfHosted: 'Community', starter: 'Email', pro: 'Priority', enterprise: 'Dedicated' },
+  { name: 'SSO', selfHosted: true, starter: false, pro: true, enterprise: true },
+  { name: 'Custom Integrations', selfHosted: true, starter: false, pro: true, enterprise: true },
+];
+
+// FAQ data
+const faqs = [
+  {
+    question: 'Can I start with self-hosted and migrate to cloud later?',
+    answer: 'Yes! We provide migration tools and support to help you move from self-hosted to our cloud offerings whenever you\'re ready. Your data and configurations can be seamlessly transferred.',
+  },
+  {
+    question: 'What happens if I exceed my limits?',
+    answer: 'You\'ll receive notifications as you approach your plan limits. You can upgrade at any time to accommodate your growth. We never hard-block your operations—you\'ll have a grace period to decide your next steps.',
+  },
+  {
+    question: 'Do you offer discounts for startups?',
+    answer: 'Yes! We offer special pricing for early-stage startups. Contact our sales team to learn about our startup program and eligibility requirements.',
+  },
+  {
+    question: 'Is there a free trial for cloud plans?',
+    answer: 'Yes, all cloud plans include a 14-day free trial with full access to all features. No credit card required to start.',
+  },
+];
+---
+
+<Layout 
+  title="Pricing" 
+  description="Choose the right Lunogram plan for your team. Free self-hosted option, or managed cloud plans starting at $49/month."
+>
+  <!-- Hero Section -->
+  <section class="relative pt-24 pb-16 sm:pt-32 sm:pb-24">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <Heading as="h1" dark class="text-balance">
+          Simple, transparent pricing
+        </Heading>
+        <p class="mt-6 text-lg text-gray-400 text-balance">
+          Start free with self-hosting. Scale with our cloud offerings.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Pricing Cards Section -->
+  <section class="relative pb-24">
+    <Container>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {tiers.map((tier) => (
+          <div class:list={[
+            'relative flex flex-col rounded-3xl p-8',
+            tier.isPrimary 
+              ? 'bg-violet-500/10 ring-2 ring-violet-500/50' 
+              : 'bg-white/5 ring-1 ring-white/10',
+          ]}>
+            {tier.recommended && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="inline-flex items-center rounded-full bg-violet-500 px-4 py-1 text-xs font-semibold text-white">
+                  Recommended
+                </span>
+              </div>
+            )}
+            
+            <div class="mb-6">
+              <Subheading dark class="text-violet-400">{tier.target}</Subheading>
+              <h3 class="mt-2 text-xl font-medium text-white">{tier.name}</h3>
+              <p class="mt-2 text-sm text-gray-400">{tier.description}</p>
+            </div>
+            
+            <div class="mb-8">
+              <span class="text-4xl font-bold text-white">{tier.price}</span>
+              {tier.period && <span class="text-gray-400">{tier.period}</span>}
+            </div>
+            
+            <ul class="mb-8 flex-1 space-y-3">
+              {tier.features.map((feature) => (
+                <li class="flex items-center gap-3 text-sm text-gray-300">
+                  <svg class="h-5 w-5 shrink-0 text-violet-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            <Button 
+              variant={tier.isPrimary ? 'primary' : 'secondary'} 
+              href={tier.ctaHref}
+              class="w-full"
+            >
+              {tier.ctaText}
+            </Button>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Feature Comparison Table Section -->
+  <section class="relative py-24 border-t border-white/5">
+    <Container>
+      <div class="text-center mb-16">
+        <Subheading dark>Compare Plans</Subheading>
+        <h2 class="mt-2 text-3xl font-medium tracking-tight text-white sm:text-4xl">
+          Feature comparison
+        </h2>
+      </div>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[640px]">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="py-4 px-4 text-left text-sm font-medium text-gray-400">Feature</th>
+              <th class="py-4 px-4 text-center text-sm font-medium text-white">Self-Hosted</th>
+              <th class="py-4 px-4 text-center text-sm font-medium text-white">Starter</th>
+              <th class="py-4 px-4 text-center text-sm font-medium text-violet-400 bg-violet-500/10 rounded-t-xl">Pro</th>
+              <th class="py-4 px-4 text-center text-sm font-medium text-white">Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparisonFeatures.map((feature, index) => (
+              <tr class:list={[
+                'border-b border-white/5',
+                index === comparisonFeatures.length - 1 && 'border-b-0',
+              ]}>
+                <td class="py-4 px-4 text-sm text-gray-300">{feature.name}</td>
+                <td class="py-4 px-4 text-center text-sm text-gray-300">
+                  {typeof feature.selfHosted === 'boolean' ? (
+                    feature.selfHosted ? (
+                      <svg class="mx-auto h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg class="mx-auto h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" />
+                      </svg>
+                    )
+                  ) : feature.selfHosted}
+                </td>
+                <td class="py-4 px-4 text-center text-sm text-gray-300">
+                  {typeof feature.starter === 'boolean' ? (
+                    feature.starter ? (
+                      <svg class="mx-auto h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg class="mx-auto h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" />
+                      </svg>
+                    )
+                  ) : feature.starter}
+                </td>
+                <td class="py-4 px-4 text-center text-sm text-gray-300 bg-violet-500/10">
+                  {typeof feature.pro === 'boolean' ? (
+                    feature.pro ? (
+                      <svg class="mx-auto h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg class="mx-auto h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" />
+                      </svg>
+                    )
+                  ) : feature.pro}
+                </td>
+                <td class="py-4 px-4 text-center text-sm text-gray-300">
+                  {typeof feature.enterprise === 'boolean' ? (
+                    feature.enterprise ? (
+                      <svg class="mx-auto h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg class="mx-auto h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" />
+                      </svg>
+                    )
+                  ) : feature.enterprise}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="relative py-24 border-t border-white/5">
+    <Container>
+      <div class="text-center mb-16">
+        <Subheading dark>FAQ</Subheading>
+        <h2 class="mt-2 text-3xl font-medium tracking-tight text-white sm:text-4xl">
+          Frequently asked questions
+        </h2>
+      </div>
+      
+      <div class="mx-auto max-w-3xl">
+        <dl class="space-y-8">
+          {faqs.map((faq) => (
+            <div class="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+              <dt class="text-lg font-medium text-white">{faq.question}</dt>
+              <dd class="mt-3 text-gray-400">{faq.answer}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative py-24 border-t border-white/5">
+    <Container>
+      <div class="text-center">
+        <h2 class="text-3xl font-medium tracking-tight text-white sm:text-4xl">
+          Ready to get started?
+        </h2>
+        <p class="mt-4 text-lg text-gray-400">
+          Start free with self-hosting, or try our cloud plans with a 14-day trial.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button variant="primary" href="/docs/self-hosted" size="lg">
+            Start for free
+          </Button>
+          <Button variant="secondary" href="/contact?plan=enterprise" size="lg">
+            Contact sales
+          </Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

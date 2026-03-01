@@ -1,0 +1,23 @@
+---
+import { clsx } from 'clsx';
+
+interface Props {
+  dark?: boolean;
+  class?: string;
+}
+
+const { 
+  dark = false, 
+  class: className,
+} = Astro.props;
+
+const classes = clsx(
+  'text-xl/7 font-medium sm:text-2xl/8',
+  dark ? 'text-white/75' : 'text-gray-950/75',
+  className,
+);
+---
+
+<p class={classes}>
+  <slot />
+</p>
