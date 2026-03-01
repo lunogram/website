@@ -1,7 +1,7 @@
 ---
 const { pathname } = Astro.url;
-const isOnBlog = pathname === "/blog" || pathname.startsWith("/blog/");
-const isOnAbout = pathname === "/about";
+const isOnBlog = pathname === "/blog" || pathname === "/blog/" || pathname.startsWith("/blog/");
+const isOnAbout = pathname === "/about" || pathname === "/about/";
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 pt-4 px-4">
@@ -105,7 +105,7 @@ const isOnAbout = pathname === "/about";
 
     <!-- Mobile Menu Backdrop -->
     <div
-        class="lg:hidden fixed inset-0 top-0 bg-black/70 backdrop-blur-md z-30 opacity-0 pointer-events-none transition-opacity duration-300"
+        class="lg:hidden fixed inset-x-0 top-24 bottom-0 bg-black/70 backdrop-blur-md z-30 opacity-0 pointer-events-none transition-opacity duration-300"
         data-mobile-menu-backdrop
     >
     </div>
@@ -214,7 +214,7 @@ const isOnAbout = pathname === "/about";
             <div class="my-3 mx-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
             <!-- External Links -->
-            <div class="mobile-menu-item px-2" style="--item-index: 3;">
+            <div class="mobile-menu-item" style="--item-index: 3;">
                 <a
                     href="https://github.com/lunogram/platform"
                     target="_blank"
