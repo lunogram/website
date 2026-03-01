@@ -105,52 +105,164 @@ const isOnAbout = pathname === "/about";
 
     <!-- Mobile Menu Backdrop -->
     <div
-        class="lg:hidden hidden fixed inset-0 top-24 bg-black/60 backdrop-blur-sm z-30"
+        class="lg:hidden fixed inset-0 top-0 bg-black/70 backdrop-blur-md z-30 opacity-0 pointer-events-none transition-opacity duration-300"
         data-mobile-menu-backdrop
     >
     </div>
 
     <!-- Mobile Menu -->
     <div
-        class="lg:hidden hidden fixed inset-x-4 top-24 backdrop-blur-xl z-40 rounded-2xl border border-white/15 bg-gradient-to-b from-white/10 to-white/5 shadow-[0_0_20px_-5px_rgba(139,92,246,0.15),inset_0_1px_0_0_rgba(255,255,255,0.1)]"
+        class="lg:hidden fixed inset-x-4 top-24 z-40 rounded-2xl border border-white/15 bg-gradient-to-b from-white/12 to-white/5 shadow-[0_8px_32px_-8px_rgba(139,92,246,0.3),inset_0_1px_0_0_rgba(255,255,255,0.1)] backdrop-blur-2xl opacity-0 pointer-events-none translate-y-[-10px] transition-all duration-300 ease-out"
         data-mobile-menu
     >
-        <div class="py-6 px-6 space-y-4">
-            <a
-                href="/about"
-                class="block text-base font-medium text-white/80 hover:text-white transition-colors"
-            >
-                About
-            </a>
-            <a
-                href="/blog"
-                class="block text-base font-medium text-white/80 hover:text-white transition-colors"
-            >
-                Blog
-            </a>
-            <div class="pt-4 border-t border-white/10">
+        <!-- Glow effect for menu -->
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/10 via-transparent to-pink-500/10 opacity-60 pointer-events-none"></div>
+        
+        <nav class="relative py-4 px-2">
+            <!-- Navigation Links -->
+            <ul class="space-y-1">
+                <li class="mobile-menu-item" style="--item-index: 0;">
+                    <a
+                        href="/"
+                        class:list={[
+                            "group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200",
+                            pathname === "/" 
+                                ? "bg-white/10 text-white" 
+                                : "text-white/70 hover:bg-white/5 hover:text-white",
+                        ]}
+                    >
+                        <span class:list={[
+                            "flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200",
+                            pathname === "/" 
+                                ? "bg-gradient-to-br from-violet-500/30 to-purple-500/30 text-white shadow-lg shadow-violet-500/20" 
+                                : "bg-white/5 text-white/60 group-hover:bg-white/10 group-hover:text-white/80",
+                        ]}>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                            </svg>
+                        </span>
+                        <div class="flex flex-col">
+                            <span class="text-[15px] font-medium">Home</span>
+                            <span class="text-xs text-white/40">Back to homepage</span>
+                        </div>
+                        {pathname === "/" && (
+                            <span class="ml-auto w-1.5 h-1.5 rounded-full bg-violet-400 shadow-lg shadow-violet-400/50"></span>
+                        )}
+                    </a>
+                </li>
+                <li class="mobile-menu-item" style="--item-index: 1;">
+                    <a
+                        href="/about"
+                        class:list={[
+                            "group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200",
+                            isOnAbout 
+                                ? "bg-white/10 text-white" 
+                                : "text-white/70 hover:bg-white/5 hover:text-white",
+                        ]}
+                    >
+                        <span class:list={[
+                            "flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200",
+                            isOnAbout 
+                                ? "bg-gradient-to-br from-violet-500/30 to-purple-500/30 text-white shadow-lg shadow-violet-500/20" 
+                                : "bg-white/5 text-white/60 group-hover:bg-white/10 group-hover:text-white/80",
+                        ]}>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </span>
+                        <div class="flex flex-col">
+                            <span class="text-[15px] font-medium">About</span>
+                            <span class="text-xs text-white/40">Learn about Lunogram</span>
+                        </div>
+                        {isOnAbout && (
+                            <span class="ml-auto w-1.5 h-1.5 rounded-full bg-violet-400 shadow-lg shadow-violet-400/50"></span>
+                        )}
+                    </a>
+                </li>
+                <li class="mobile-menu-item" style="--item-index: 2;">
+                    <a
+                        href="/blog"
+                        class:list={[
+                            "group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200",
+                            isOnBlog 
+                                ? "bg-white/10 text-white" 
+                                : "text-white/70 hover:bg-white/5 hover:text-white",
+                        ]}
+                    >
+                        <span class:list={[
+                            "flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200",
+                            isOnBlog 
+                                ? "bg-gradient-to-br from-violet-500/30 to-purple-500/30 text-white shadow-lg shadow-violet-500/20" 
+                                : "bg-white/5 text-white/60 group-hover:bg-white/10 group-hover:text-white/80",
+                        ]}>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                            </svg>
+                        </span>
+                        <div class="flex flex-col">
+                            <span class="text-[15px] font-medium">Blog</span>
+                            <span class="text-xs text-white/40">Read our latest posts</span>
+                        </div>
+                        {isOnBlog && (
+                            <span class="ml-auto w-1.5 h-1.5 rounded-full bg-violet-400 shadow-lg shadow-violet-400/50"></span>
+                        )}
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Divider -->
+            <div class="my-3 mx-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <!-- External Links -->
+            <div class="mobile-menu-item px-2" style="--item-index: 3;">
                 <a
                     href="https://github.com/lunogram/platform"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-medium text-white/80 border border-white/10 rounded-full hover:bg-white/5 transition-colors"
+                    class="group flex items-center gap-4 px-4 py-3.5 rounded-xl text-white/70 hover:bg-white/5 hover:text-white transition-all duration-200"
                 >
-                    <svg
-                        class="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                            clip-rule="evenodd"></path>
+                    <span class="flex items-center justify-center w-10 h-10 rounded-lg bg-white/5 text-white/60 group-hover:bg-white/10 group-hover:text-white/80 transition-all duration-200">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                fill-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                    <div class="flex flex-col">
+                        <span class="text-[15px] font-medium">GitHub</span>
+                        <span class="text-xs text-white/40">View source code</span>
+                    </div>
+                    <svg class="ml-auto w-4 h-4 text-white/30 group-hover:text-white/50 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
-                    GitHub
                 </a>
             </div>
-        </div>
+        </nav>
     </div>
 </header>
+
+<style>
+    /* Staggered animation for menu items */
+    .mobile-menu-item {
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        transition-delay: calc(var(--item-index) * 50ms + 100ms);
+    }
+    
+    [data-mobile-menu].is-open .mobile-menu-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Closing animation - faster and reverse order */
+    [data-mobile-menu].is-closing .mobile-menu-item {
+        opacity: 0;
+        transform: translateY(-8px);
+        transition-delay: calc((3 - var(--item-index)) * 30ms);
+    }
+</style>
 
 <script>
     const menuButton = document.querySelector("[data-mobile-menu-button]");
@@ -168,24 +280,71 @@ const isOnAbout = pathname === "/about";
         menuIconOpen &&
         menuIconClose
     ) {
+        let isAnimating = false;
+        
         const closeMenu = () => {
-            mobileMenu.classList.add("hidden");
-            mobileMenuBackdrop.classList.add("hidden");
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            // Start closing animation
+            mobileMenu.classList.add("is-closing");
+            mobileMenu.classList.remove("is-open");
+            
+            // Animate backdrop
+            mobileMenuBackdrop.classList.remove("opacity-100");
+            mobileMenuBackdrop.classList.add("opacity-0");
+            
+            // Animate menu container
+            mobileMenu.classList.remove("opacity-100", "translate-y-0");
+            mobileMenu.classList.add("opacity-0", "translate-y-[-10px]");
+            
+            // Update icons
             menuIconOpen.classList.remove("hidden");
             menuIconClose.classList.add("hidden");
-            document.body.classList.remove("overflow-hidden");
+            
+            // After animation completes
+            setTimeout(() => {
+                mobileMenuBackdrop.classList.add("pointer-events-none");
+                mobileMenu.classList.add("pointer-events-none");
+                mobileMenu.classList.remove("is-closing");
+                document.body.classList.remove("overflow-hidden");
+                isAnimating = false;
+            }, 300);
         };
 
         const openMenu = () => {
-            mobileMenu.classList.remove("hidden");
-            mobileMenuBackdrop.classList.remove("hidden");
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            // Enable interaction and start animation
+            mobileMenuBackdrop.classList.remove("pointer-events-none");
+            mobileMenu.classList.remove("pointer-events-none");
+            
+            // Trigger reflow for animation
+            void mobileMenu.offsetWidth;
+            
+            // Animate backdrop
+            mobileMenuBackdrop.classList.remove("opacity-0");
+            mobileMenuBackdrop.classList.add("opacity-100");
+            
+            // Animate menu container
+            mobileMenu.classList.remove("opacity-0", "translate-y-[-10px]");
+            mobileMenu.classList.add("opacity-100", "translate-y-0", "is-open");
+            
+            // Update icons
             menuIconOpen.classList.add("hidden");
             menuIconClose.classList.remove("hidden");
+            
+            // Lock body scroll
             document.body.classList.add("overflow-hidden");
+            
+            setTimeout(() => {
+                isAnimating = false;
+            }, 300);
         };
 
         menuButton.addEventListener("click", () => {
-            const isOpen = !mobileMenu.classList.contains("hidden");
+            const isOpen = mobileMenu.classList.contains("is-open");
             if (isOpen) {
                 closeMenu();
             } else {
@@ -199,6 +358,13 @@ const isOnAbout = pathname === "/about";
         // Close menu when clicking on links
         mobileMenu.querySelectorAll("a").forEach((link) => {
             link.addEventListener("click", closeMenu);
+        });
+        
+        // Close on escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+                closeMenu();
+            }
         });
     }
 </script>

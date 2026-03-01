@@ -1,0 +1,77 @@
+# Lunogram
+
+> Lunogram is a self-hosted, open-source multi-channel marketing automation platform for SaaS companies. It enables targeted customer communication across email, SMS, push notifications, and webhooks through a visual journey builder and dynamic user segmentation.
+
+Lunogram is a continuation of Parcelvoy, an archived marketing automation platform. The project is being rebuilt from the ground up with a modern architecture, transitioning from Node.js/MySQL to Go/PostgreSQL for improved performance and maintainability.
+
+Key characteristics:
+- Self-hosted with no vendor lock-in
+- Multi-channel: Email, SMS, Push Notifications, Webhooks
+- Visual journey builder for customer communication automation
+- Dynamic user segmentation with rule-based lists
+- Organization/B2B management capabilities
+- Open source and community-driven
+- Alternative to enterprise tools like Iterable and Braze
+
+## Core Features
+
+- **Multi-Channel Messaging**: Send communications via Email, SMS, Push Notifications, and Webhooks from a single platform
+- **Visual Journey Builder**: Drag-and-drop workflow editor with step types including Entrance, Delay, Gate, Email, Push, SMS, Webhook, and Exit
+- **Dynamic Segmentation**: Create rule-based user lists that automatically update based on user properties, events, and organization attributes
+- **Organization Management**: B2B-ready with customer organization modeling for account-based marketing
+- **A/B Testing**: Variant campaigns and journey branches for optimization
+- **Multi-Locale Campaigns**: Timezone-aware delivery with multiple language support
+- **SSO & RBAC**: SAML/OpenID support with role-based access control
+
+## Integrations
+
+Lunogram integrates with popular email and SMS providers:
+- **Email**: Resend, SendGrid, Amazon SES, Mailgun, SMTP
+- **SMS**: Twilio, Plivo, Vonage, Telnyx
+- **Push**: Apple Push Notification service (APN), Firebase Cloud Messaging (FCM)
+
+## Pricing
+
+- **Self-Hosted (Free)**: Unlimited users, messages, journeys, and team members with full source code access
+- **Cloud Starter ($49/month)**: Up to 10,000 users, 50,000 messages/month, managed infrastructure
+- **Cloud Pro ($199/month)**: Up to 100,000 users, 500,000 messages/month, priority support, SSO
+- **Enterprise (Custom)**: Custom limits, dedicated support, SLA guarantee
+
+## Pages
+
+- [Home](https://lunogram.dev): Landing page with interactive demos showcasing the journey builder and segmentation features
+- [About](https://lunogram.dev/about): Company mission, team information, and origin story explaining the Parcelvoy fork
+- [Pricing](https://lunogram.dev/pricing): Detailed pricing tiers with feature comparison and FAQ
+- [Blog](https://lunogram.dev/blog): Updates and insights from the Lunogram team
+
+## Resources
+
+- [GitHub Repository](https://github.com/lunogram/platform): Source code for the Lunogram platform
+- [GitHub Discussions](https://github.com/lunogram/platform/discussions): Community discussion forum
+- [Contributing Guide](https://github.com/lunogram/platform/blob/main/CONTRIBUTING.md): How to contribute to the project
+
+## Technical Details
+
+The platform is built with:
+- **Go 1.25+** backend with a modular architecture
+- **PostgreSQL** for data persistence (separate databases for management, users, and journeys)
+- **Redis** for caching and session management
+- **NATS** for pub/sub messaging between services
+- **WASM plugin system** for extensible provider integrations (built with TinyGo)
+
+### WASM Plugin System
+
+Providers are implemented as sandboxed WASM modules for security and portability. Each provider implements:
+- `manifest()` - Returns metadata and configuration schema
+- `send()` - Sends messages via the provider's API
+
+Built-in providers include Logger (debug), Resend (email), and Twilio (email/SMS).
+
+### Deployment
+
+Lunogram runs via Docker Compose with a single command:
+```
+docker compose up -d
+```
+
+Default access at http://localhost:8080 with basic auth credentials.

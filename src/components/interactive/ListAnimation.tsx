@@ -364,22 +364,25 @@ export default function ListAnimation() {
                 )}
               </span>
 
-              <span className="px-3 py-1.5 rounded-lg ring-1 font-medium bg-violet-500/10 text-violet-400 ring-violet-500/20">
-                equals
-              </span>
+              {/* On mobile, equals and value are on a new row to prevent layout shift during animation */}
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <span className="px-3 py-1.5 rounded-lg ring-1 font-medium bg-violet-500/10 text-violet-400 ring-violet-500/20">
+                  equals
+                </span>
 
-              <span
-                className={`px-3 py-1.5 rounded-lg ring-1 font-medium bg-green-500/10 text-green-400 ring-green-500/20 font-mono transition-all duration-300 ${
-                  highlightPlanValue
-                    ? "ring-2 ring-green-400/60 shadow-[0_0_12px_rgba(74,222,128,0.4)]"
-                    : ""
-                }`}
-              >
-                {showValueCursor ? planValueText : planValueText || '"basic"'}
-                {showValueCursor && (
-                  <span className="inline-block w-0.5 h-4 bg-white/80 ml-0.5 align-middle animate-pulse" />
-                )}
-              </span>
+                <span
+                  className={`px-3 py-1.5 rounded-lg ring-1 font-medium bg-green-500/10 text-green-400 ring-green-500/20 font-mono transition-all duration-300 ${
+                    highlightPlanValue
+                      ? "ring-2 ring-green-400/60 shadow-[0_0_12px_rgba(74,222,128,0.4)]"
+                      : ""
+                  }`}
+                >
+                  {showValueCursor ? planValueText : planValueText || '"basic"'}
+                  {showValueCursor && (
+                    <span className="inline-block w-0.5 h-4 bg-white/80 ml-0.5 align-middle animate-pulse" />
+                  )}
+                </span>
+              </div>
             </div>
           </div>
 
