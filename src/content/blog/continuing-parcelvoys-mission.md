@@ -6,7 +6,7 @@ author: "Jeroen Rinzema"
 tags: ["announcement", "parcelvoy"]
 ---
 
-A few weeks ago, Parcelvoy was archived. It was a straightforward open-source marketing automation platform—self-hosted, multi-channel (email, SMS, push, webhooks), with a visual journey builder that fit the needs of SaaS applications really well. Effective without trying to be everything to everyone.
+A few weeks ago, Parcelvoy was archived. It was a straightforward, self-hosted marketing automation platform—multi-channel (email, SMS, push, webhooks), with a visual journey builder that fit the needs of SaaS applications really well. Effective without trying to be everything to everyone.
 
 The community that grew around it deserves a place to continue. That's what Lunogram is here for.
 

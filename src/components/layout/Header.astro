@@ -1,13 +1,19 @@
 ---
 const { pathname } = Astro.url;
 const isOnBlog = pathname === "/blog" || pathname.startsWith("/blog/");
+const isOnAbout = pathname === "/about";
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 pt-4 px-4">
     <!-- Centered pill navigation container -->
     <nav
-        class="mx-auto max-w-4xl flex items-center justify-between h-16 px-6 rounded-full bg-[#09090b]/80 backdrop-blur-xl border border-white/10"
+        class="group/nav relative mx-auto max-w-4xl flex items-center justify-between h-16 px-6 rounded-full backdrop-blur-xl border border-white/15 bg-gradient-to-b from-white/10 to-white/5 shadow-[0_0_20px_-5px_rgba(139,92,246,0.15),inset_0_1px_0_0_rgba(255,255,255,0.1)]"
     >
+        <!-- Glow effect -->
+        <div
+            class="absolute inset-0 rounded-full bg-gradient-to-r from-violet-500/10 via-purple-500/5 to-pink-500/10 blur-xl opacity-40 -z-10"
+        >
+        </div>
         <!-- Logo -->
         <a href="/" class="flex items-center gap-2.5 group">
             <svg
@@ -27,8 +33,17 @@ const isOnBlog = pathname === "/blog" || pathname.startsWith("/blog/");
             <span class="text-lg font-semibold text-white">Lunogram</span>
         </a>
 
-        <!-- Right side: Blog link + GitHub icon (Desktop) -->
+        <!-- Right side: About + Blog link + GitHub icon (Desktop) -->
         <div class="hidden lg:flex items-center gap-6">
+            <a
+                href="/about"
+                class:list={[
+                    "text-[15px] font-medium transition-colors",
+                    isOnAbout ? "text-white" : "text-white/60 hover:text-white",
+                ]}
+            >
+                About
+            </a>
             <a
                 href="/blog"
                 class:list={[
@@ -97,10 +112,16 @@ const isOnBlog = pathname === "/blog" || pathname.startsWith("/blog/");
 
     <!-- Mobile Menu -->
     <div
-        class="lg:hidden hidden fixed inset-x-4 top-24 bg-[#09090b] backdrop-blur-xl z-40 rounded-2xl border border-white/10"
+        class="lg:hidden hidden fixed inset-x-4 top-24 backdrop-blur-xl z-40 rounded-2xl border border-white/15 bg-gradient-to-b from-white/10 to-white/5 shadow-[0_0_20px_-5px_rgba(139,92,246,0.15),inset_0_1px_0_0_rgba(255,255,255,0.1)]"
         data-mobile-menu
     >
         <div class="py-6 px-6 space-y-4">
+            <a
+                href="/about"
+                class="block text-base font-medium text-white/80 hover:text-white transition-colors"
+            >
+                About
+            </a>
             <a
                 href="/blog"
                 class="block text-base font-medium text-white/80 hover:text-white transition-colors"

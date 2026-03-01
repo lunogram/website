@@ -35,7 +35,7 @@
   
   <!-- Subtitle -->
   <text x="600" y="450" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle">
-    Open-source multi-channel marketing automation
+    Self-hosted multi-channel marketing automation
   </text>
   
   <!-- Decorative elements - small circles -->
