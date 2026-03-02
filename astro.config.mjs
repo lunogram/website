@@ -12,7 +12,13 @@ export default defineConfig({
   },
   output: 'static',
   redirects: {
-    '/nl': '/',
-    '/en': '/'
+    '/nl': {
+      status: 302,
+      destination: '/'
+    },
+    '/en': {
+      status: 302,
+      destination: '/'
+    }
   }
 });
