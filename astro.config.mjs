@@ -10,5 +10,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  output: 'static'
+  output: 'static',
+  redirects: {
+    '/nl': '/',
+    '/en': '/'
+  }
 });
