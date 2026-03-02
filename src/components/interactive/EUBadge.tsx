@@ -7,7 +7,6 @@ export default function EUBadge() {
   const containerRef = useRef<HTMLSpanElement>(null);
   const flagsRef = useRef<(HTMLSpanElement | null)[]>([]);
   const animationsRef = useRef<ReturnType<typeof animate>[]>([]);
-  const isAnimating = useRef(false);
 
   // Create multiple flag elements for confetti effect
   // Positioned in a radial starburst pattern around the text with variable sizes
@@ -21,9 +20,6 @@ export default function EUBadge() {
   ];
 
   const handleMouseEnter = () => {
-    if (isAnimating.current) return;
-    isAnimating.current = true;
-
     // Cancel any existing animations
     animationsRef.current.forEach((anim) => anim?.pause());
     animationsRef.current = [];
@@ -51,11 +47,6 @@ export default function EUBadge() {
         duration: 500,
         delay: flag.delay,
         ease: "outBack",
-        onComplete: () => {
-          if (i === flags.length - 1) {
-            isAnimating.current = false;
-          }
-        },
       });
       animationsRef.current.push(anim);
     });
@@ -65,7 +56,6 @@ export default function EUBadge() {
     // Cancel any existing animations
     animationsRef.current.forEach((anim) => anim?.pause());
     animationsRef.current = [];
-    isAnimating.current = true;
 
     flags.forEach((flag, i) => {
       const el = flagsRef.current[i];
@@ -80,11 +70,6 @@ export default function EUBadge() {
         duration: 300,
         delay: i * 20,
         ease: "inQuad",
-        onComplete: () => {
-          if (i === flags.length - 1) {
-            isAnimating.current = false;
-          }
-        },
       });
       animationsRef.current.push(anim);
     });
