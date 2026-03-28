@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import PainSection from "../components/PainSection.astro";
+import UseCasesSection from "../components/UseCasesSection.astro";
 import FeaturesSection from "../components/FeaturesSection.astro";
 import ListAnimationSection from "../components/ListAnimationSection.astro";
 import FeaturesSection2 from "../components/FeaturesSection2.astro";
@@ -9,20 +12,32 @@ import IntegrationsSection from "../components/IntegrationsSection.astro";
 
 <Layout
     title="Lunogram - Customer Engagement, Simplified"
-    description="Customer engagement, simplified. Self-hosted multi-channel platform for email, SMS, push notifications, and webhooks."
+    description="Turning customers into relationships. Onboard, activate, and retain customers across every channel. Proudly built in the EU."
 >
-    <!-- 1. Hero Section with Journey Animation Placeholder -->
+    <!-- 1. Hero Section with Journey Animation -->
     <Hero />
 
-    <!-- 2. Feature Section 1 - Core Capabilities -->
+    <!-- 2. Trust Strip - Social proof signals -->
+    <TrustStrip />
+
+    <!-- 3. Pain Section - Problem agitation -->
+    <PainSection class="border-t border-white/5" />
+
+    <!-- 4. Use Cases - Customer lifecycle stages -->
+    <UseCasesSection class="border-t border-white/5" />
+
+    <!-- 5. Feature Section 1 - Core Capabilities -->
     <FeaturesSection class="border-t border-white/5" />
 
-    <!-- 3. List Animation Showcase - Segmentation -->
+    <!-- 6. List Animation Showcase - Segmentation -->
     <ListAnimationSection id="segmentation" class="border-t border-white/5" />
 
-    <!-- 4. Feature Section 2 - Platform & Scale -->
+    <!-- 7. Integrations -->
+    <IntegrationsSection id="integrations" class="border-t border-white/5" />
+
+    <!-- 8. Platform & Infrastructure (Cloud + OSS) -->
     <FeaturesSection2 class="border-t border-white/5" />
 
-    <!-- 5. Integrations -->
-    <IntegrationsSection id="integrations" class="border-t border-white/5" />
+    <!-- Testimonials - uncomment when real testimonials are available -->
+    <!-- <Testimonials class="border-t border-white/5" /> -->
 </Layout>

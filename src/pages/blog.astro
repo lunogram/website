@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/ui/Container.astro';
+import Heading from '../components/ui/Heading.astro';
+import Subheading from '../components/ui/Subheading.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 // Get all blog posts, filter out drafts in production, and sort by date
@@ -25,12 +27,10 @@ function formatDate(date: Date) {
   <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-24">
     <Container>
       <div class="max-w-3xl mx-auto text-center">
-        <p class="font-mono text-xs font-semibold tracking-widest text-violet-400 uppercase mb-6">
-          Blog
-        </p>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white text-balance">
+        <Subheading class="text-violet-400 mb-6">Blog</Subheading>
+        <Heading as="h1" class="text-4xl sm:text-5xl lg:text-6xl">
           Updates & Insights
-        </h1>
+        </Heading>
         <p class="mt-6 text-lg sm:text-xl text-gray-400 text-balance">
           Stay up to date with the latest from Lunogram.
         </p>
@@ -81,7 +81,7 @@ function formatDate(date: Date) {
         </div>
       ) : (
         <!-- Aligned with navbar inner content (logo left edge to GitHub icon right edge) -->
-        <div class="max-w-4xl mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
           <div class="space-y-12">
             {posts.map((post) => (
               <article class="group">

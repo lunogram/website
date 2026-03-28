@@ -19,6 +19,14 @@ export default defineConfig({
     '/en': {
       status: 302,
       destination: '/'
+    },
+    '/about': {
+      status: 301,
+      destination: '/'
+    },
+    '/pricing': {
+      status: 301,
+      destination: '/'
     }
   }
 });

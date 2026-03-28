@@ -1,0 +1,494 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/ui/Container.astro";
+import Heading from "../components/ui/Heading.astro";
+import Subheading from "../components/ui/Subheading.astro";
+---
+
+<Layout
+  title="Features - Lunogram"
+  description="Multi-channel messaging, visual journey builder, dynamic segmentation, A/B testing, and more. Everything you need to engage customers across their entire lifecycle."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 sm:pt-40 sm:pb-24">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center">
+        <Subheading class="text-violet-400 mb-4">Platform</Subheading>
+        <Heading as="h1" class="text-4xl sm:text-5xl lg:text-6xl">
+          Everything you need to<br class="hidden sm:block" />
+          engage customers
+        </Heading>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+          One platform for messaging, automation, segmentation, and experimentation. No more stitching together point solutions.
+        </p>
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="https://accounts.lunogram.com"
+            class="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-6 text-sm font-medium text-white shadow-lg shadow-violet-500/25 hover:from-violet-500 hover:to-purple-500 transition-all duration-200"
+          >
+            Get Started
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/lunogram/platform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-white/10 px-6 text-sm font-medium text-white ring-1 ring-white/15 transition-colors hover:bg-white/15"
+          >
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Multi-Channel Messaging -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div>
+          <Subheading class="text-violet-400 mb-4">Multi-Channel</Subheading>
+          <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+            Reach customers everywhere
+          </h2>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            Send the right message on the right channel. Email, SMS, push notifications, and webhooks — all from a single platform with unified templates and delivery tracking.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Unified template system across all channels</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Bring your own providers — Resend, SendGrid, Twilio, APNs, FCM</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Swap providers without changing engagement logic</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Real-time delivery tracking and bounce handling</span>
+            </li>
+          </ul>
+        </div>
+        <div class="relative">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-3 bg-blue-500/10 px-5 py-4 rounded-xl ring-1 ring-blue-500/20">
+              <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Email</span>
+            </div>
+            <div class="flex items-center gap-3 bg-green-500/10 px-5 py-4 rounded-xl ring-1 ring-green-500/20">
+              <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                </svg>
+              </div>
+              <span class="text-white font-medium">SMS</span>
+            </div>
+            <div class="flex items-center gap-3 bg-violet-500/10 px-5 py-4 rounded-xl ring-1 ring-violet-500/20">
+              <div class="w-10 h-10 bg-violet-500 rounded-lg flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Push</span>
+            </div>
+            <div class="flex items-center gap-3 bg-amber-500/10 px-5 py-4 rounded-xl ring-1 ring-amber-500/20">
+              <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <span class="text-white font-medium">Webhooks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Journey Builder -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div class="order-2 lg:order-1">
+          <div class="flex items-center justify-center gap-2 py-8">
+            <div class="w-12 h-12 bg-gray-500/20 rounded-lg flex items-center justify-center ring-1 ring-gray-500/30">
+              <svg class="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 4.25A2.25 2.25 0 015.25 2h5.5A2.25 2.25 0 0113 4.25v2a.75.75 0 01-1.5 0v-2a.75.75 0 00-.75-.75h-5.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 00.75-.75v-2a.75.75 0 011.5 0v2A2.25 2.25 0 0110.75 18h-5.5A2.25 2.25 0 013 15.75V4.25z" clip-rule="evenodd"></path>
+                <path fill-rule="evenodd" d="M19 10a.75.75 0 00-.75-.75H8.704l1.048-.943a.75.75 0 10-1.004-1.114l-2.5 2.25a.75.75 0 000 1.114l2.5 2.25a.75.75 0 101.004-1.114l-1.048-.943h9.546A.75.75 0 0019 10z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="w-8 h-0.5 bg-white/20"></div>
+            <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center ring-1 ring-yellow-500/30">
+              <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="w-8 h-0.5 bg-white/20"></div>
+            <div class="w-12 h-12 bg-violet-500/20 rounded-lg flex items-center justify-center ring-1 ring-violet-500/30 rotate-45">
+              <svg class="w-5 h-5 text-violet-400 -rotate-45" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-3 ml-2">
+              <div class="w-5 h-0.5 bg-green-500/40"></div>
+              <div class="w-5 h-0.5 bg-red-500/40"></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center ring-1 ring-blue-500/30">
+                <svg class="w-4 h-4 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"></path>
+                  <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"></path>
+                </svg>
+              </div>
+              <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center ring-1 ring-pink-500/30">
+                <svg class="w-4 h-4 text-pink-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 2a6 6 0 00-6 6c0 1.887-.454 3.665-1.257 5.234a.75.75 0 00.515 1.076 32.91 32.91 0 003.256.508 3.5 3.5 0 006.972 0 32.903 32.903 0 003.256-.508.75.75 0 00.515-1.076A11.448 11.448 0 0116 8a6 6 0 00-6-6zM8.05 14.943a33.54 33.54 0 003.9 0 2 2 0 01-3.9 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <Subheading class="text-violet-400 mb-4">Automation</Subheading>
+          <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+            Design customer journeys visually
+          </h2>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            Build if/then workflows that respond to real user behavior. Trigger messages based on events, delays, conditions, and branching logic — no code required.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Drag-and-drop journey builder</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Event triggers, delays, and conditional branching</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Cross-channel orchestration in a single flow</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Segmentation -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div>
+          <Subheading class="text-violet-400 mb-4">Segmentation</Subheading>
+          <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+            Send the right message to the right people
+          </h2>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            Build dynamic segments based on user properties, events, and behavior. Segments update in real-time so your campaigns always target the right audience.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Dynamic, real-time audience segments</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Filter by properties, events, and behavioral signals</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">B2B organization-level targeting</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Combine AND/OR rules for precise targeting</span>
+            </li>
+          </ul>
+        </div>
+        <div class="relative">
+          <!-- Segment rule builder preview -->
+          <div class="bg-white/[0.03] rounded-2xl p-6 ring-1 ring-white/10">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 bg-violet-500/20 rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-white">Active Trial Users</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-lg ring-1 ring-white/10 text-xs">
+                <span class="text-violet-400 font-mono">plan</span>
+                <span class="text-white/40">equals</span>
+                <span class="text-white font-medium">trial</span>
+              </div>
+              <div class="flex items-center gap-2 px-3 text-xs text-white/30 font-mono">AND</div>
+              <div class="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-lg ring-1 ring-white/10 text-xs">
+                <span class="text-violet-400 font-mono">last_seen</span>
+                <span class="text-white/40">within</span>
+                <span class="text-white font-medium">7 days</span>
+              </div>
+              <div class="flex items-center gap-2 px-3 text-xs text-white/30 font-mono">AND</div>
+              <div class="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-lg ring-1 ring-white/10 text-xs">
+                <span class="text-violet-400 font-mono">onboarding_completed</span>
+                <span class="text-white/40">is</span>
+                <span class="text-white font-medium">false</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- A/B Testing -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        <div class="order-2 lg:order-1">
+          <div class="flex justify-center gap-10 py-8">
+            <div class="text-center">
+              <div class="w-20 h-20 bg-blue-500/20 rounded-xl flex items-center justify-center ring-1 ring-blue-500/30 mb-3">
+                <span class="text-blue-400 font-bold text-2xl">A</span>
+              </div>
+              <div class="w-20 h-2 bg-blue-500/30 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-500 rounded-full" style="width: 42%"></div>
+              </div>
+              <span class="text-xs text-white/50 mt-2 block">42%</span>
+            </div>
+            <div class="text-center">
+              <div class="w-20 h-20 bg-green-500/20 rounded-xl flex items-center justify-center ring-1 ring-green-500/30 mb-3">
+                <span class="text-green-400 font-bold text-2xl">B</span>
+              </div>
+              <div class="w-20 h-2 bg-green-500/30 rounded-full overflow-hidden">
+                <div class="h-full bg-green-500 rounded-full" style="width: 58%"></div>
+              </div>
+              <span class="text-xs text-white/50 mt-2 block">58%</span>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <Subheading class="text-violet-400 mb-4">Optimization</Subheading>
+          <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+            Find what converts, then double down
+          </h2>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            Split-test subject lines, message content, send times, and entire journey branches. Let data tell you what works best for each segment.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">A/B test messages and journey branches</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Multi-variant experiments with traffic splitting</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Test subject lines, content, timing, and channels</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Localization & Analytics -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Localization -->
+        <div class="bg-white/[0.03] rounded-2xl p-8 ring-1 ring-white/10">
+          <Subheading class="text-violet-400 mb-3">Localization</Subheading>
+          <h3 class="text-xl font-semibold text-white mb-3">
+            Speak every customer's language
+          </h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">
+            Multi-locale campaigns with A/B testing and timezone-aware delivery. Engage users in their preferred language automatically.
+          </p>
+          <div class="flex gap-2">
+            <div class="px-3 py-1.5 text-xs font-medium rounded-lg ring-1 bg-violet-500/20 text-violet-400 ring-violet-500/30">EN</div>
+            <div class="px-3 py-1.5 text-xs font-medium rounded-lg ring-1 bg-white/5 text-white/50 ring-white/10">ES</div>
+            <div class="px-3 py-1.5 text-xs font-medium rounded-lg ring-1 bg-white/5 text-white/50 ring-white/10">FR</div>
+            <div class="px-3 py-1.5 text-xs font-medium rounded-lg ring-1 bg-white/5 text-white/50 ring-white/10">DE</div>
+            <div class="px-3 py-1.5 text-xs font-medium rounded-lg ring-1 bg-white/5 text-white/50 ring-white/10">+</div>
+          </div>
+        </div>
+
+        <!-- Analytics -->
+        <div class="bg-white/[0.03] rounded-2xl p-8 ring-1 ring-white/10">
+          <Subheading class="text-violet-400 mb-3">Insights</Subheading>
+          <h3 class="text-xl font-semibold text-white mb-3">
+            Understand what drives engagement
+          </h3>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">
+            Track delivery, opens, clicks, and journey progression. See which campaigns move the needle and where customers drop off.
+          </p>
+          <div class="flex items-end gap-1 h-12">
+            <div class="flex-1 bg-violet-500/30 rounded-t-sm" style="height: 45%"></div>
+            <div class="flex-1 bg-violet-500/30 rounded-t-sm" style="height: 60%"></div>
+            <div class="flex-1 bg-violet-500/30 rounded-t-sm" style="height: 35%"></div>
+            <div class="flex-1 bg-violet-500/40 rounded-t-sm" style="height: 80%"></div>
+            <div class="flex-1 bg-violet-500/40 rounded-t-sm" style="height: 65%"></div>
+            <div class="flex-1 bg-violet-500 rounded-t-sm" style="height: 100%"></div>
+            <div class="flex-1 bg-violet-500/60 rounded-t-sm" style="height: 85%"></div>
+            <div class="flex-1 bg-violet-500/40 rounded-t-sm" style="height: 70%"></div>
+            <div class="flex-1 bg-violet-500/30 rounded-t-sm" style="height: 50%"></div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Platform (Cloud + OSS) -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="text-center mb-16">
+        <Subheading class="mb-4">Platform</Subheading>
+        <Heading as="h2" class="text-3xl sm:text-4xl lg:text-5xl">
+          Cloud or self-hosted.<br class="hidden sm:block" />
+          Your choice.
+        </Heading>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+          Get started with Lunogram Cloud in minutes, or self-host for full control. Either way, your data stays yours.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Lunogram Cloud -->
+        <div class="bg-gradient-to-b from-violet-500/10 to-transparent rounded-2xl p-8 ring-1 ring-violet-500/20">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-violet-500/20 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+              </svg>
+            </div>
+            <span class="text-white font-semibold">Lunogram Cloud</span>
+            <span class="ml-auto text-xs font-medium text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded-full ring-1 ring-violet-500/20">Recommended</span>
+          </div>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">
+            Fully managed infrastructure so you can focus on engaging customers instead of managing servers.
+          </p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Fully managed infrastructure</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">EU-hosted, GDPR compliant</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Automatic updates & scaling</span>
+            </li>
+          </ul>
+          <a
+            href="https://accounts.lunogram.com"
+            class="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-6 text-sm font-medium text-white shadow-lg shadow-violet-500/25 hover:from-violet-500 hover:to-purple-500 transition-all duration-200 w-full"
+          >
+            Get started free
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Self-Hosted -->
+        <div class="bg-white/[0.03] rounded-2xl p-8 ring-1 ring-white/10">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+              </svg>
+            </div>
+            <span class="text-white font-semibold">Self-Hosted</span>
+          </div>
+          <p class="text-sm text-white/60 leading-relaxed mb-6">
+            Full control over your data and infrastructure. Audit the code, contribute features, build plugins.
+          </p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Source available</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">WASM plugin system</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-sm text-white/70">Full data ownership</span>
+            </li>
+          </ul>
+          <a
+            href="https://github.com/lunogram/platform"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-white/10 px-6 text-sm font-medium text-white ring-1 ring-white/15 transition-colors hover:bg-white/15 w-full"
+          >
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

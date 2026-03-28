@@ -1,0 +1,124 @@
+---
+import Container from './ui/Container.astro';
+import Heading from './ui/Heading.astro';
+import Subheading from './ui/Subheading.astro';
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id = "use-cases", class: className } = Astro.props;
+
+const useCases = [
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>`,
+    label: 'Onboarding',
+    title: 'Turn signups into active users',
+    description: 'Guide new users to their first value moment with targeted welcome sequences across email, push, and in-app messages.',
+    color: 'green',
+    metric: 'Email, Push, In-app',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>`,
+    label: 'Activation',
+    title: 'Drive adoption of key features',
+    description: 'Trigger contextual nudges when users are ready for the next step. Celebrate milestones and surface what they\'re missing.',
+    color: 'amber',
+    metric: 'Behavioral triggers',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182M21.015 4.356v4.992"/></svg>`,
+    label: 'Retention',
+    title: 'Keep your best customers engaged',
+    description: 'Detect disengagement before it becomes churn. Automate re-activation campaigns based on behavioral signals.',
+    color: 'violet',
+    metric: 'Churn prevention',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>`,
+    label: 'Re-engagement',
+    title: 'Win back dormant users',
+    description: 'Reach churned or inactive users with personalized win-back campaigns timed to when they\'re most likely to return.',
+    color: 'rose',
+    metric: 'Win-back campaigns',
+  },
+];
+
+const colorClasses = {
+  green: {
+    iconBg: 'bg-green-500/15',
+    iconText: 'text-green-400',
+    ring: 'ring-green-500/20',
+    metricText: 'text-green-400',
+    metricBg: 'bg-green-500/10',
+  },
+  amber: {
+    iconBg: 'bg-amber-500/15',
+    iconText: 'text-amber-400',
+    ring: 'ring-amber-500/20',
+    metricText: 'text-amber-400',
+    metricBg: 'bg-amber-500/10',
+  },
+  violet: {
+    iconBg: 'bg-violet-500/15',
+    iconText: 'text-violet-400',
+    ring: 'ring-violet-500/20',
+    metricText: 'text-violet-400',
+    metricBg: 'bg-violet-500/10',
+  },
+  rose: {
+    iconBg: 'bg-rose-500/15',
+    iconText: 'text-rose-400',
+    ring: 'ring-rose-500/20',
+    metricText: 'text-rose-400',
+    metricBg: 'bg-rose-500/10',
+  },
+} as const;
+---
+
+<section id={id} class:list={["py-24", className]}>
+  <Container>
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <Subheading class="mb-4">Use cases</Subheading>
+      <Heading as="h2" class="text-3xl sm:text-4xl lg:text-5xl">
+        Engage customers across their<br class="hidden sm:block" />
+        entire lifecycle
+      </Heading>
+      <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+        From first signup to long-term loyalty — automate the right message at the right moment on the right channel.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {useCases.map((useCase) => {
+        const colors = colorClasses[useCase.color as keyof typeof colorClasses];
+        return (
+          <div class="bg-white/[0.03] rounded-2xl p-8 ring-1 ring-white/10 hover:ring-white/20 transition-all flex flex-col">
+            <div class="flex items-start justify-between mb-5">
+              <div class:list={[
+                "w-12 h-12 rounded-xl flex items-center justify-center",
+                colors.iconBg,
+                `ring-1 ${colors.ring}`,
+              ]}>
+                <span class={colors.iconText} set:html={useCase.icon} />
+              </div>
+              <span class:list={[
+                "text-xs font-mono font-semibold px-2.5 py-1 rounded-full",
+                colors.metricBg,
+                colors.metricText,
+              ]}>
+                {useCase.metric}
+              </span>
+            </div>
+            <p class:list={["font-mono text-xs font-semibold uppercase tracking-widest mb-2", colors.metricText]}>
+              {useCase.label}
+            </p>
+            <h3 class="text-lg font-semibold text-white mb-2">{useCase.title}</h3>
+            <p class="text-sm text-white/60 leading-relaxed flex-1">{useCase.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  </Container>
+</section>

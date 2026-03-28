@@ -1,7 +1,8 @@
 ---
 const { pathname } = Astro.url;
 const isOnBlog = pathname === "/blog" || pathname === "/blog/" || pathname.startsWith("/blog/");
-const isOnAbout = pathname === "/about" || pathname === "/about/";
+const isOnFeatures = pathname === "/features" || pathname === "/features/";
+const isOnUseCases = pathname.startsWith("/use-cases");
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 pt-4 px-4">
@@ -33,16 +34,25 @@ const isOnAbout = pathname === "/about" || pathname === "/about/";
             <span class="text-lg font-semibold text-white">Lunogram</span>
         </a>
 
-        <!-- Right side: About + Blog link + EU Badge + GitHub icon + Waitlist (Desktop) -->
+        <!-- Right side: Features + Use Cases + Blog + GitHub icon + Get Started (Desktop) -->
         <div class="hidden lg:flex items-center gap-6">
             <a
-                href="/about"
+                href="/features"
                 class:list={[
                     "text-[15px] font-medium transition-colors",
-                    isOnAbout ? "text-white" : "text-white/60 hover:text-white",
+                    isOnFeatures ? "text-white" : "text-white/60 hover:text-white",
                 ]}
             >
-                About
+                Features
+            </a>
+            <a
+                href="/use-cases"
+                class:list={[
+                    "text-[15px] font-medium transition-colors",
+                    isOnUseCases ? "text-white" : "text-white/60 hover:text-white",
+                ]}
+            >
+                Use Cases
             </a>
             <a
                 href="/blog"
@@ -71,7 +81,7 @@ const isOnAbout = pathname === "/about" || pathname === "/about/";
                 href="https://accounts.lunogram.com"
                 class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-purple-600 rounded-full hover:from-violet-500 hover:to-purple-500 transition-all duration-200 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40"
             >
-                Join Waitlist
+                Get Started
             </a>
         </div>
 
@@ -158,34 +168,63 @@ const isOnAbout = pathname === "/about" || pathname === "/about/";
                 </li>
                 <li class="mobile-menu-item" style="--item-index: 1;">
                     <a
-                        href="/about"
+                        href="/features"
                         class:list={[
                             "group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200",
-                            isOnAbout 
+                            isOnFeatures 
                                 ? "bg-white/10 text-white" 
                                 : "text-white/70 hover:bg-white/5 hover:text-white",
                         ]}
                     >
                         <span class:list={[
                             "flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200",
-                            isOnAbout 
+                            isOnFeatures 
                                 ? "bg-gradient-to-br from-violet-500/30 to-purple-500/30 text-white shadow-lg shadow-violet-500/20" 
                                 : "bg-white/5 text-white/60 group-hover:bg-white/10 group-hover:text-white/80",
                         ]}>
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                             </svg>
                         </span>
                         <div class="flex flex-col">
-                            <span class="text-[15px] font-medium">About</span>
-                            <span class="text-xs text-white/40">Learn about Lunogram</span>
+                            <span class="text-[15px] font-medium">Features</span>
+                            <span class="text-xs text-white/40">Explore capabilities</span>
                         </div>
-                        {isOnAbout && (
+                        {isOnFeatures && (
                             <span class="ml-auto w-1.5 h-1.5 rounded-full bg-violet-400 shadow-lg shadow-violet-400/50"></span>
                         )}
                     </a>
                 </li>
                 <li class="mobile-menu-item" style="--item-index: 2;">
+                    <a
+                        href="/use-cases"
+                        class:list={[
+                            "group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-200",
+                            isOnUseCases 
+                                ? "bg-white/10 text-white" 
+                                : "text-white/70 hover:bg-white/5 hover:text-white",
+                        ]}
+                    >
+                        <span class:list={[
+                            "flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200",
+                            isOnUseCases 
+                                ? "bg-gradient-to-br from-violet-500/30 to-purple-500/30 text-white shadow-lg shadow-violet-500/20" 
+                                : "bg-white/5 text-white/60 group-hover:bg-white/10 group-hover:text-white/80",
+                        ]}>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </span>
+                        <div class="flex flex-col">
+                            <span class="text-[15px] font-medium">Use Cases</span>
+                            <span class="text-xs text-white/40">See what's possible</span>
+                        </div>
+                        {isOnUseCases && (
+                            <span class="ml-auto w-1.5 h-1.5 rounded-full bg-violet-400 shadow-lg shadow-violet-400/50"></span>
+                        )}
+                    </a>
+                </li>
+                <li class="mobile-menu-item" style="--item-index: 3;">
                     <a
                         href="/blog"
                         class:list={[
@@ -220,7 +259,7 @@ const isOnAbout = pathname === "/about" || pathname === "/about/";
             <div class="my-3 mx-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
             <!-- External Links -->
-            <div class="mobile-menu-item" style="--item-index: 3;">
+            <div class="mobile-menu-item" style="--item-index: 4;">
                 <a
                     href="https://github.com/lunogram/platform"
                     target="_blank"
@@ -249,15 +288,15 @@ const isOnAbout = pathname === "/about" || pathname === "/about/";
             <div class="my-3 mx-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
             <!-- Waitlist CTA -->
-            <div class="mobile-menu-item px-4 pb-2" style="--item-index: 4;">
+            <div class="mobile-menu-item px-4 pb-2" style="--item-index: 5;">
                 <a
                     href="https://accounts.lunogram.com"
                     class="flex items-center justify-center gap-2 w-full py-3.5 text-[15px] font-medium text-white bg-gradient-to-r from-violet-600 to-purple-600 rounded-xl hover:from-violet-500 hover:to-purple-500 transition-all duration-200 shadow-lg shadow-violet-500/25"
                 >
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
-                    Join Waitlist
+                    Get Started
                 </a>
             </div>
         </nav>
@@ -282,7 +321,7 @@ const isOnAbout = pathname === "/about" || pathname === "/about/";
     [data-mobile-menu].is-closing .mobile-menu-item {
         opacity: 0;
         transform: translateY(-8px);
-        transition-delay: calc((4 - var(--item-index)) * 30ms);
+        transition-delay: calc((5 - var(--item-index)) * 30ms);
     }
 </style>
 

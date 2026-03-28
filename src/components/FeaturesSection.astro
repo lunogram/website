@@ -1,5 +1,7 @@
 ---
 import Container from "./ui/Container.astro";
+import Heading from "./ui/Heading.astro";
+import Subheading from "./ui/Subheading.astro";
 import { GlowCards } from "./interactive/GlowCards";
 
 interface Props {
@@ -10,25 +12,22 @@ interface Props {
 const { id = "features", class: className } = Astro.props;
 ---
 
-<section id={id} class:list={["pt-12 pb-24 sm:pt-16", className]}>
+<section id={id} class:list={["py-24", className]}>
     <Container>
         <!-- Section Header - centered -->
         <div class="text-center mb-16 max-w-3xl mx-auto">
-            <p
-                class="font-mono text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4"
-            >
-                Features
+            <Subheading class="mb-4">How it works</Subheading>
+            <Heading as="h2" class="text-3xl sm:text-4xl lg:text-5xl">
+                One platform for every<br class="hidden sm:block" />
+                customer touchpoint
+            </Heading>
+            <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+                Stop stitching together point solutions. Lunogram gives you messaging, automation, segmentation, and experimentation in a single self-hosted platform.
             </p>
-            <h2
-                class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-white text-balance"
-            >
-                Everything you need to engage<br class="hidden sm:block" />
-                your customers
-            </h2>
         </div>
 
         <!-- Bento Grid - 2x2 layout centered -->
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             <GlowCards client:load className="relative">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Cross-Channel Messaging -->
@@ -46,8 +45,8 @@ const { id = "features", class: className } = Astro.props;
                                 Reach customers everywhere
                             </h3>
                             <p class="text-sm text-white/60 leading-relaxed">
-                                Email, SMS, push notifications, and webhooks
-                                from a single platform.
+                                One inbox, every channel. Reach customers
+                                wherever they are — no tool-switching required.
                             </p>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
@@ -165,8 +164,8 @@ const { id = "features", class: className } = Astro.props;
                                 Design customer journeys visually
                             </h3>
                             <p class="text-sm text-white/60 leading-relaxed">
-                                Drag-and-drop workflow builder with 8 step types
-                                for complete automation.
+                                Build if/then workflows that respond to
+                                real user behavior — no code required.
                             </p>
                         </div>
                         <div
@@ -277,11 +276,11 @@ const { id = "features", class: className } = Astro.props;
                                 SaaS-Ready
                             </p>
                             <h3 class="text-xl font-semibold text-white mb-2">
-                                Built for B2B
+                                Engage B2B accounts, not just individuals
                             </h3>
                             <p class="text-sm text-white/60 leading-relaxed">
-                                Model customer organizations and target users by
-                                membership with ease.
+                                Group users by organization and target entire
+                                teams with relevant messaging.
                             </p>
                         </div>
                         <div class="space-y-2.5">
@@ -381,11 +380,11 @@ const { id = "features", class: className } = Astro.props;
                                 Optimization
                             </p>
                             <h3 class="text-xl font-semibold text-white mb-2">
-                                Experiment & optimize
+                                Find what converts, then double down
                             </h3>
                             <p class="text-sm text-white/60 leading-relaxed">
-                                Run variant campaigns and journey branches to
-                                find what works best.
+                                Split-test messages and journey branches to
+                                continuously improve engagement.
                             </p>
                         </div>
                         <div class="flex justify-center gap-8 py-4">

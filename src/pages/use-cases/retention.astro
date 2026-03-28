@@ -1,0 +1,278 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/ui/Container.astro";
+import Subheading from "../../components/ui/Subheading.astro";
+---
+
+<Layout
+  title="Customer Retention - Lunogram"
+  description="Keep your best customers engaged. Detect disengagement before it becomes churn and automate re-activation campaigns based on behavioral signals."
+>
+  <!-- Hero -->
+  <section class="pt-32 pb-16 sm:pt-40 sm:pb-24">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center">
+        <a href="/use-cases" class="inline-flex items-center gap-1.5 text-sm text-white/50 hover:text-white/70 transition-colors mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          All use cases
+        </a>
+        <div class="flex items-center justify-center mb-6">
+          <div class="w-14 h-14 rounded-xl bg-violet-500/15 ring-1 ring-violet-500/20 flex items-center justify-center">
+            <svg class="w-7 h-7 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182M21.015 4.356v4.992"></path>
+            </svg>
+          </div>
+        </div>
+        <Subheading class="text-violet-400 mb-4">Retention</Subheading>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white text-balance">
+          Keep your best<br class="hidden sm:block" />
+          customers engaged
+        </h1>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+          Churn doesn't happen overnight. Lunogram helps you spot the early warning signs and act before it's too late.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- The Problem -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-white mb-6">
+          Why customers quietly leave
+        </h2>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          Most SaaS teams only notice churn when it's already happened — when a customer cancels or their subscription lapses. By then, it's too late. The disengagement started weeks or months earlier, and no one was watching.
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="bg-white/[0.03] rounded-xl p-5 ring-1 ring-white/10">
+            <div class="w-10 h-10 bg-red-500/15 rounded-lg flex items-center justify-center ring-1 ring-red-500/20 mb-3">
+              <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path>
+              </svg>
+            </div>
+            <h3 class="text-sm font-semibold text-white mb-1">Gradual disengagement</h3>
+            <p class="text-xs text-white/50">Usage drops over weeks, but no one notices until the cancellation hits.</p>
+          </div>
+          <div class="bg-white/[0.03] rounded-xl p-5 ring-1 ring-white/10">
+            <div class="w-10 h-10 bg-red-500/15 rounded-lg flex items-center justify-center ring-1 ring-red-500/20 mb-3">
+              <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-sm font-semibold text-white mb-1">Unused features</h3>
+            <p class="text-xs text-white/50">Customers paying for features they don't know exist or haven't adopted.</p>
+          </div>
+          <div class="bg-white/[0.03] rounded-xl p-5 ring-1 ring-white/10">
+            <div class="w-10 h-10 bg-red-500/15 rounded-lg flex items-center justify-center ring-1 ring-red-500/20 mb-3">
+              <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path>
+              </svg>
+            </div>
+            <h3 class="text-sm font-semibold text-white mb-1">No early warning</h3>
+            <p class="text-xs text-white/50">No system to flag at-risk accounts before they reach the point of no return.</p>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- How Lunogram Helps -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="max-w-3xl mx-auto">
+        <p class="font-mono text-xs font-semibold tracking-widest text-violet-400 uppercase mb-4">
+          How Lunogram helps
+        </p>
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-white mb-12">
+          Proactive retention, not reactive damage control
+        </h2>
+
+        <div class="space-y-8">
+          <div class="flex gap-5">
+            <div class="w-10 h-10 bg-violet-500/15 rounded-lg flex items-center justify-center ring-1 ring-violet-500/20 shrink-0">
+              <span class="text-violet-400 font-semibold text-sm">1</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-2">Build behavioral segments</h3>
+              <p class="text-sm text-white/60 leading-relaxed">
+                Create dynamic segments for "at-risk" users based on declining login frequency, feature usage, or support ticket patterns. These segments update in real-time as behavior changes.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-5">
+            <div class="w-10 h-10 bg-violet-500/15 rounded-lg flex items-center justify-center ring-1 ring-violet-500/20 shrink-0">
+              <span class="text-violet-400 font-semibold text-sm">2</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-2">Trigger proactive outreach</h3>
+              <p class="text-sm text-white/60 leading-relaxed">
+                When a user enters your "at-risk" segment, automatically kick off a retention journey. Share feature tips they haven't discovered, offer a call with your team, or surface relevant content.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-5">
+            <div class="w-10 h-10 bg-violet-500/15 rounded-lg flex items-center justify-center ring-1 ring-violet-500/20 shrink-0">
+              <span class="text-violet-400 font-semibold text-sm">3</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-2">Surface underused value</h3>
+              <p class="text-sm text-white/60 leading-relaxed">
+                Identify features a customer hasn't adopted and send targeted campaigns highlighting how those features solve their specific problems. Turn passive users into power users.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-5">
+            <div class="w-10 h-10 bg-violet-500/15 rounded-lg flex items-center justify-center ring-1 ring-violet-500/20 shrink-0">
+              <span class="text-violet-400 font-semibold text-sm">4</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-2">Target entire accounts</h3>
+              <p class="text-sm text-white/60 leading-relaxed">
+                For B2B, Lunogram's organization-level targeting lets you message entire teams. If adoption is low across an account, engage the champion, the admin, or the whole team with relevant content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Example Journey -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-white mb-10">
+          Example: Churn prevention flow
+        </h2>
+        <div class="bg-white/[0.02] rounded-2xl p-8 sm:p-10 ring-1 ring-white/[0.06]">
+          <!-- Trigger -->
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 bg-violet-500/15 rounded-xl flex items-center justify-center ring-1 ring-violet-500/25 shrink-0">
+              <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] font-medium text-white">User enters "at-risk" segment</span>
+            </div>
+            <span class="text-[10px] tracking-wider text-violet-400/70 font-mono uppercase bg-violet-500/10 px-2.5 py-1 rounded-full ring-1 ring-violet-500/20">trigger</span>
+          </div>
+
+          <!-- Connector -->
+          <div class="ml-[21px] w-px h-6 bg-gradient-to-b from-white/10 to-white/5"></div>
+
+          <!-- Step: Send email -->
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 bg-white/[0.06] rounded-xl flex items-center justify-center ring-1 ring-white/10 shrink-0">
+              <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-white/80">Send "We miss you" email with feature highlights</span>
+            </div>
+            <span class="text-[10px] tracking-wider text-white/30 font-mono uppercase">send</span>
+          </div>
+
+          <!-- Connector -->
+          <div class="ml-[21px] w-px h-6 bg-gradient-to-b from-white/10 to-white/5"></div>
+
+          <!-- Step: Wait -->
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 bg-white/[0.06] rounded-xl flex items-center justify-center ring-1 ring-white/10 shrink-0">
+              <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-white/80">Wait 3 days</span>
+            </div>
+            <span class="text-[10px] tracking-wider text-white/30 font-mono uppercase">delay</span>
+          </div>
+
+          <!-- Connector -->
+          <div class="ml-[21px] w-px h-6 bg-gradient-to-b from-white/10 to-white/5"></div>
+
+          <!-- Step: Condition -->
+          <div class="flex items-center gap-4">
+            <div class="w-11 h-11 bg-white/[0.06] rounded-xl flex items-center justify-center ring-1 ring-white/10 rotate-45 shrink-0">
+              <svg class="w-5 h-5 text-white/40 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-white/80">Has user returned?</span>
+            </div>
+            <span class="text-[10px] tracking-wider text-white/30 font-mono uppercase">condition</span>
+          </div>
+
+          <!-- Branch outcomes -->
+          <div class="ml-[21px] w-px h-4 bg-white/5"></div>
+          <div class="ml-6 sm:ml-10 grid gap-3 sm:grid-cols-2">
+            <div class="bg-white/[0.04] rounded-xl p-4 ring-1 ring-white/[0.08]">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-5 h-5 rounded-full bg-green-500/15 flex items-center justify-center">
+                  <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <span class="text-xs font-medium text-white/70">Yes</span>
+              </div>
+              <p class="text-xs text-white/50 leading-relaxed">Send "Welcome back" email + new features digest</p>
+            </div>
+            <div class="bg-white/[0.04] rounded-xl p-4 ring-1 ring-white/[0.08]">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-5 h-5 rounded-full bg-red-500/15 flex items-center justify-center">
+                  <svg class="w-3 h-3 text-red-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </div>
+                <span class="text-xs font-medium text-white/70">No</span>
+              </div>
+              <p class="text-xs text-white/50 leading-relaxed">Send push notification + offer a call with the team</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 border-t border-white/5">
+    <Container>
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-6">
+          Stop churn before it starts
+        </h2>
+        <p class="text-gray-400 mb-8">
+          Build retention workflows that respond to real behavior. Get started in minutes with Lunogram Cloud.
+        </p>
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="https://accounts.lunogram.com"
+            class="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-6 text-sm font-medium text-white shadow-lg shadow-violet-500/25 hover:from-violet-500 hover:to-purple-500 transition-all duration-200"
+          >
+            Get Started
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          <a
+            href="/use-cases"
+            class="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-white/10 px-6 text-sm font-medium text-white ring-1 ring-white/15 transition-colors hover:bg-white/15"
+          >
+            View all use cases
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>

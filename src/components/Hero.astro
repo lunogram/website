@@ -2,7 +2,6 @@
 import Container from './ui/Container.astro';
 import Button from './ui/Button.astro';
 import JourneyAnimation from './interactive/JourneyAnimation';
-import EUBadge from './interactive/EUBadge';
 ---
 
 <section class="relative">
@@ -11,24 +10,23 @@ import EUBadge from './interactive/EUBadge';
     <div class="py-12 sm:py-16 md:py-20 text-center max-w-4xl mx-auto">
       <!-- Headline -->
       <h1 class="font-display text-4xl/[0.95] font-medium tracking-tight text-balance text-white sm:text-5xl/[0.9] md:text-6xl/[0.9]">
-        Customer communication
+        Turning Customers
         <br class="hidden sm:block" />
-        for SaaS companies
+        into Relationships
       </h1>
       
       <!-- Subheadline -->
       <p class="mt-8 max-w-2xl mx-auto text-xl/7 font-medium text-white/75 sm:text-2xl/8">
-        Self-hosted multi-channel marketing automation with visual journeys, 
-        dynamic segmentation, and organization management. Proudly built in <EUBadge client:visible />
+        Onboard, activate, and retain customers across every channel. Proudly built in the EU.
       </p>
       
       <!-- CTA Buttons -->
       <div class="mt-12 flex flex-wrap justify-center gap-4">
-        <Button variant="primary" size="lg" href="https://github.com/lunogram/platform">
-          Explore on GitHub
+        <Button variant="primary" size="lg" href="https://accounts.lunogram.com">
+          Get Started
         </Button>
-        <Button variant="secondary" size="lg" href="https://accounts.lunogram.com">
-          Join Waiting List
+        <Button variant="secondary" size="lg" href="https://github.com/lunogram/platform">
+          View on GitHub
         </Button>
       </div>
     </div>

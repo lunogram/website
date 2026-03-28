@@ -1,0 +1,85 @@
+---
+import Container from './ui/Container.astro';
+import Heading from './ui/Heading.astro';
+import Subheading from './ui/Subheading.astro';
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+
+const painPoints = [
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>`,
+    title: 'Silent churn',
+    description: 'Customers disengage weeks before they cancel. Without proactive engagement signals, you only find out when it\'s too late.',
+    color: 'red',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`,
+    title: 'Disconnected tools',
+    description: 'One tool for email, another for push, a third for analytics. Your customer data lives in silos while your team juggles dashboards.',
+    color: 'amber',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: 'One-size-fits-all',
+    description: 'Every customer gets the same generic messages. Without segmentation tied to real behavior, your messaging feels like spam.',
+    color: 'violet',
+  },
+];
+
+const colorClasses = {
+  red: {
+    iconBg: 'bg-red-500/15',
+    iconText: 'text-red-400',
+    ring: 'ring-red-500/20',
+  },
+  amber: {
+    iconBg: 'bg-amber-500/15',
+    iconText: 'text-amber-400',
+    ring: 'ring-amber-500/20',
+  },
+  violet: {
+    iconBg: 'bg-violet-500/15',
+    iconText: 'text-violet-400',
+    ring: 'ring-violet-500/20',
+  },
+} as const;
+---
+
+<section id={id} class:list={["py-24", className]}>
+  <Container>
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <Subheading class="mb-4">The problem</Subheading>
+      <Heading as="h2" class="text-3xl sm:text-4xl lg:text-5xl">
+        Your customers are slipping<br class="hidden sm:block" />
+        through the cracks
+      </Heading>
+      <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
+        Most SaaS teams lose customers not because of a bad product, but because they fail to engage at the right moment.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {painPoints.map((point) => {
+        const colors = colorClasses[point.color as keyof typeof colorClasses];
+        return (
+          <div class="bg-white/[0.03] rounded-2xl p-8 ring-1 ring-white/10">
+            <div class:list={[
+              "w-12 h-12 rounded-xl flex items-center justify-center mb-5",
+              colors.iconBg,
+              `ring-1 ${colors.ring}`,
+            ]}>
+              <span class={colors.iconText} set:html={point.icon} />
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">{point.title}</h3>
+            <p class="text-sm text-white/60 leading-relaxed">{point.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  </Container>
+</section>
